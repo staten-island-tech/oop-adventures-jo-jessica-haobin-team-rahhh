@@ -16,15 +16,23 @@ class enemy():
         enemy_attack = character - enemy.attack
 
         a = random.randint(1,12)
-        
+        print(f'You have rolled a {a}')
         
         if a > 6: 
-            enemy.health = stab
+            b = input("Pick between stab, punch, fireball, or knife throw: ")
+            if b == 'stab':
+                enemy.health = stab
+            elif b == 'punch':
+                enemy.health = punch
+            elif b == 'fireball':
+                enemy.health = fireball
+            elif b == 'knife throw':
+                enemy.health = knife_throw
         elif a < 6: 
-            enemy.health = enemy.health
-        print(f'You have rolled a {a}')
+            character = enemy_attack
+    
 
 enemy = enemy(100, 20)
 
-print(enemy.health)
 
+print(enemy.health, character)
