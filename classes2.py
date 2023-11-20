@@ -60,7 +60,7 @@ class enemy():
                 enemy.health = fireball
             elif b == 'knife throw':
                 enemy.health = knife_throw
-        elif a < 6: 
+        elif a < 7: 
             character = enemy_attack
 
 enemy = enemy(100, 20)
