@@ -32,23 +32,6 @@ class stuff_you_can_do():
         self.heal = heal
         heal = "H"
 
-def work_on_this_later():
-    import random
-    a = random.randint(1,12)  
-    successful = (7,8,9,10,11,12)
-    unsuccessful = (1,2,3,4,5,6)
-
-    roll_the_dice = "yes"
-
-    while roll_the_dice == "yes":
-        roll_the_dice = input("would you like to roll the dice to see if you get a successful attack or not?: ").lower()
-        if a in successful:
-            print ("your attack was successful, 20 HP was taken away from the enemy")
-            # put enemy's health - 20 after you get haobins code
-            break
-        if a in unsuccessful:
-            print ("your attack was unsuccessful")
-            break
 
 
  

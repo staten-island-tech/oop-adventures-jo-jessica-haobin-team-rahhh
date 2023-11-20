@@ -1,4 +1,20 @@
-name = input("What is your username?")
+#DO NOT TOUCH THIS!! I AM WORKING ON IT - JO
+
+
+import classes
+open (classes)
+
 def tutorial():
     print("To attack, input F. To heal, input heal. To engage in the fight, input P. To run away, input S. To equip your weapon or unequip your weapon, input E.")
-x = input(f"Now that you know the functions, what class will you choose {name}?")
+    name = input("Please insert your name: ").title()
+    x = input(f"Theres two types of classes in this game: Mage and Warrior. What class will you choose {name}? ").title()
+    for i in x:
+        if i == "Warrior":
+            
+        if i == "Mage": 
+
+
+tutorial()
+
+def fighting():
+    fo
