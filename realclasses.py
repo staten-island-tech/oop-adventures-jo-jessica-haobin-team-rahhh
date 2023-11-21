@@ -1,7 +1,5 @@
-
-
 class user():
-    def character(self, name, health, types, ):
+    def character(self, name, health, types):
         self.name = name
         self.health = health
         #health = 100 
@@ -32,11 +30,5 @@ class stuff_you_can_do():
         self.heal = heal
         heal = "H"
 
-
-
- 
-
-
-
-
-
+warrior("Jess", 100, "Berserker", "Stab", "Knife Throw")
+#code doesn't work
