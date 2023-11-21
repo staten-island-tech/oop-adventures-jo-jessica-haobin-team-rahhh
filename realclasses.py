@@ -32,23 +32,24 @@ class stuff_you_can_do():
         self.heal = heal
         heal = "H"
 
+character = 100
 class enemy():
+    global character
     def __init__(self, health:int, damage:int ):
         self.health = health 
         self.damage = damage 
 
-    character = 100
+enemy = enemy(100, 20)
 
-    def fight(self):
+def fight(enemy):
         global character
         stab = enemy.health - 20 
         punch = enemy.health - 20 
         fireball = enemy.health - 20 
         knife_throw = enemy.health - 20
-        enemy_attack = character - enemy.attack
+        enemy_attack = character - enemy.damage
 
         a = random.randint(1,12)
-        print(f'You have rolled a {a}')
         
         if a > 6: 
             b = input("Pick between stab, punch, fireball, or knife throw: ")
@@ -60,7 +61,16 @@ class enemy():
                 enemy.health = fireball
             elif b == 'knife throw':
                 enemy.health = knife_throw
-        elif a < 7: 
-            character = enemy_attack
 
-enemy = enemy(100, 20)
+        elif a < 7: 
+            print(f"You've rolled a {a} so you missed")
+            character = enemy_attack
+            print(character.health)
+
+        
+        if character > 0 and enemy.health == 0:
+            print('gg')
+        elif character == 0 and enemy.health > 0:
+            print('play again')
+        elif character > 0 and enemy.health > 0:
+            fight(enemy)
