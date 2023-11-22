@@ -1,25 +1,22 @@
 class user():
-    def character(self, name, health, types):
+    def character(self, name, health):
         self.name = name
         self.health = health
-        #health = 100 
-        self.type = types
+        #health = 100
 
 class warrior(user):
-    def __init__(self, name, health, types, stab, knife_throw):
-        super().__init__(name, health, types)
-        self.stab = stab
-        self.knife_throw = knife_throw
+    def __init__(self, name, health, warrior_skills):
+        super().__init__(name, health)
+        self.warrior_skills = warrior_skills
     def __str__(self) :
-        return f"{self.name}, {self.health}, {self.stab}, {self.types}, {self.knife_throw}"
+        return f"{self.name}, {self.health}, {self.warrior_skills}"
 
 class mage(user):
-    def __init__(self, name, health, types, fireball, heal):
-        super().__init__(name, health, types)
-        self.fireball = fireball
-        self.heal = heal
-    def __str__(self) :
-        return f"{self.name}, {self.health}, {self.fireball}, {self.types}, {self.heal}"
+    def __init__(self, name, health, mage_skills):
+        super().__init__(name, health)
+        self.mage_skills = mage_skills
+    def __str__(self):
+        return f"{self.name}, {self.health}, {self.mage_skills}"
 
 class stuff_you_can_do(): 
     def attacks(self, attack, heal, start_fight):
@@ -30,5 +27,5 @@ class stuff_you_can_do():
         self.heal = heal
         heal = "H"
 
-warrior("Jess", 100, "Berserker", "Stab", "Knife Throw")
+warrior("Jess", 100, "Berserker", "[Stab, Throw Knife]")
 #code doesn't work
