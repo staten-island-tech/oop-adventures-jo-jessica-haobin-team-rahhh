@@ -2,7 +2,8 @@ import random
 
 class enemy():
     
-    def __init__(self, health:int, damage:int ):
+    def __init__(self, monster_name:str, health:int, damage:int ):
+        self.monster_name = monster_name
         self.health = health 
         self.damage = damage 
 
@@ -13,7 +14,7 @@ class user():
         self.name = name
         self.health = health
         #health = 100 
-        self.type = types
+        self.types = types
 
 class warrior(user):
     def __init__(self, name:str, health:int, types:str, stab:int, knife_throw:int):
@@ -41,9 +42,9 @@ class stuff_you_can_do():
         heal = "H"
 
 
-warrior = warrior("Deniz", "100000000", "melee", 100, 100)
-mage = mage("Haobin", "100000", "range", 100, 100)
-enemy = enemy(10000, 20)
+warrior = warrior("Deniz", 100000000, "melee", 100, 100)
+mage = mage("Haobin", 100000, "range", 100, 100)
+enemy = enemy("goblin", 10000, 20)
 
 
 def fight(enemy, warrior, mage):
@@ -54,13 +55,14 @@ def fight(enemy, warrior, mage):
             knife_throw = warrior.knife_throw
         elif d == "mage":
             fireball = mage.fireball 
-        
+            lazerbeam = mage.lazerbeam
         enemy_attack = enemy.damage
 
-        a = random.randint(1,12)
+        a = random.randint(1,6)
+        g = random.randint(1,6)
         
-        if a > 6: 
-            print(f"You've rolled a {a} so you can attack.")
+        if a+g > 6: 
+            print(f"You've rolled a {a+g} so you can attack.")
             if d == "warrior":
                 e = (input("Choose between stab or knife throw: ")).lower()
                 if e == 'stab':
@@ -71,9 +73,12 @@ def fight(enemy, warrior, mage):
                 f = (input('Choose between fireball or lazerbeam: ')).lower()
                 if f == "fireball":
                     enemy.health == enemy.health - fireball
-        
-        elif a == 6:
-            print(f"You've rolled a {a} so you can choose to heal or attack.")
+                elif f == "lazerbeam":
+                    enemy.health == enemy.health - lazerbeam
+            input(f"Press any button to continue: ")
+
+        elif a+g == 6:
+            print(f"You've rolled a {a+g} so you can choose to heal or attack.")
             c = (input("Do you choose to heal or attack: ")).lower()
             if c == 'heal':
                 character = character + 20
@@ -90,8 +95,8 @@ def fight(enemy, warrior, mage):
                 print(f"You've chose to attack. You currently have {character} HP. The enemy currently have {enemy.health} HP.")
                 input('Press any buttons to continue: ')
 
-        elif a < 6: 
-            print(f"You've rolled a {a} so you missed.")
+        elif a+g < 6: 
+            print(f"You've rolled a {a+g} so you missed.")
             character = character - enemy_attack
             print(f"The enemy hit you. You currently have {character} HP. The enemy currently have {enemy.health} HP.")
             input('Press any buttons to continue: ')
@@ -105,7 +110,7 @@ def fight(enemy, warrior, mage):
             fight(enemy)
 
 
-fight(enemy)
+fight(enemy, warrior, mage)
 
 
 
