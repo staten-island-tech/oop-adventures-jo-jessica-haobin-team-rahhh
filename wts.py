@@ -54,7 +54,7 @@ def fight(enemy, warrior, mage):
             character = warrior.health 
             stab = warrior.stab 
             knife_throw = warrior.knife_throw
-            x = int(warrior.health/enemy_attack)
+            x = int(warrior.health**warrior.health)
             for i in range(x):
                 a = random.randint(1,6)
                 g = random.randint(1,6)
@@ -84,15 +84,17 @@ def fight(enemy, warrior, mage):
                     input("Press any buttons to continue: ")
                 if character == 0 and enemy.health > 0:
                     print('You lost')
+                    break
                 elif character > 0 and enemy.health == 0:
                     print('You win')
+                    break
                         
 
         elif d == "mage":
             character = mage.health
             fireball = mage.fireball 
             lazerbeam = mage.lazerbeam
-            y = mage.health/enemy_attack
+            y = int(mage.health**mage.health)
             for i in range(y):
                 a = random.randint(1,6)
                 g = random.randint(1,6)
