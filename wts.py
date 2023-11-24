@@ -1,16 +1,7 @@
 import random 
 
-class enemy():
-    
-    def __init__(self, monster_name:str, health:int, damage:int ):
-        self.monster_name = monster_name
-        self.health = health 
-        self.damage = damage 
-
-
-
-class user():
-    def character(self, name:str, health:int, types:str):
+class user:
+    def __init__(self, name:str, health:int, types:str):
         self.name = name
         self.health = health
         #health = 100 
@@ -32,6 +23,13 @@ class mage(user):
     def __str__(self) :
         return f"{self.name}, {self.health}, {self.types}, {self.fireball}, {self.lazerbeam}"
 
+class enemy(user):
+    def __init__(self, name:str, health:int, types:str, damage:int ):
+        super().__init__(name, health, types)
+        self.damage = damage 
+    def __str__(self) :
+        return f"{self.name}, {self.health}, {self.types}, {self.damage}"
+    
 class stuff_you_can_do(): 
     def attacks(self, attack, heal, start_fight):
         self.start_fight = start_fight
@@ -42,74 +40,93 @@ class stuff_you_can_do():
         heal = "H"
 
 
-warrior = warrior("Deniz", 100000000, "melee", 100, 100)
-mage = mage("Haobin", 100000, "range", 100, 100)
-enemy = enemy("goblin", 10000, 20)
+warrior = warrior("Deniz", 100, "melee", 20, 20)
+mage = mage("Haobin", 100, "range", 20, 20)
+enemy = enemy("goblin", 100, "melee", 20)
 
 
 def fight(enemy, warrior, mage):
         d = (input("Are you a warrior or mage?: ")).lower()
+        enemy_attack = enemy.damage
+        print(f"You are on an adventure and you encounter a {enemy.name}. The chances of you attacking and the enemy attacking is decided by 2 dices.")
+        input('Press any buttons to continue to fight: ')
         if d == "warrior":
             character = warrior.health 
             stab = warrior.stab 
             knife_throw = warrior.knife_throw
+            x = int(warrior.health/enemy_attack)
+            for i in range(x):
+                a = random.randint(1,6)
+                g = random.randint(1,6)
+                if a + g > 6: 
+                    print(f"You've rolled a {a+g} so you can attack.")
+                    e = (input("Choose between stab or knife throw: ")).lower()
+                    if e == 'stab':
+                        enemy.health -=stab
+                        input('Press any buttons to continue: ')
+                    elif e == 'knife throw':
+                        enemy.health -=knife_throw
+                        input('Press any buttons to continues: ')
+                    print(f"You currently have {character} HP. The {enemy.name} currently have {enemy.health} HP.")
+                    input("Press any buttons to continues: ")
+                if character == 0 and enemy.health > 0:
+                    print('You lost')
+                    break
+                elif character > 0 and enemy.health == 0:
+                    print('You win')
+                    break
+                    
+
+                elif a + g < 6:
+                    print(f"You've rolled {a+g} so the enemy hit you.")
+                    character -=enemy_attack
+                    print(f"You currently have {character} HP. The {enemy.name} currently have {enemy.health} HP.")
+                    input("Press any buttons to continue: ")
+                if character == 0 and enemy.health > 0:
+                    print('You lost')
+                elif character > 0 and enemy.health == 0:
+                    print('You win')
+                        
+
         elif d == "mage":
+            character = mage.health
             fireball = mage.fireball 
             lazerbeam = mage.lazerbeam
-        enemy_attack = enemy.damage
-
-        a = random.randint(1,6)
-        g = random.randint(1,6)
-        
-        if a+g > 6: 
-            print(f"You've rolled a {a+g} so you can attack.")
-            if d == "warrior":
-                e = (input("Choose between stab or knife throw: ")).lower()
-                if e == 'stab':
-                    enemy.health == enemy.health - stab
-                elif e == 'knife throw':
-                    enemy.health == enemy.health - knife_throw
-            elif d == 'mage':
-                f = (input('Choose between fireball or lazerbeam: ')).lower()
-                if f == "fireball":
-                    enemy.health == enemy.health - fireball
-                elif f == "lazerbeam":
-                    enemy.health == enemy.health - lazerbeam
-            input(f"Press any button to continue: ")
-
-        elif a+g == 6:
-            print(f"You've rolled a {a+g} so you can choose to heal or attack.")
-            c = (input("Do you choose to heal or attack: ")).lower()
-            if c == 'heal':
-                character = character + 20
-                print(f"You've successfully healed. You currently have {character} HP. Then enemy currently have {enemy.health} HP")
-                input('Press any buttons to continue: ')
-            elif c == 'attack':
-                b = (input("Pick between stab, punch, fireball, or knife throw: ")).lower()
-                if b == 'stab':
-                    enemy.health = enemy.health - stab
-                elif b == 'fireball':
-                    enemy.health == enemy.health - fireball
-                elif b == 'knife throw':
-                    enemy.health = enemy.health - knife_throw
-                print(f"You've chose to attack. You currently have {character} HP. The enemy currently have {enemy.health} HP.")
-                input('Press any buttons to continue: ')
-
-        elif a+g < 6: 
-            print(f"You've rolled a {a+g} so you missed.")
-            character = character - enemy_attack
-            print(f"The enemy hit you. You currently have {character} HP. The enemy currently have {enemy.health} HP.")
-            input('Press any buttons to continue: ')
-
-        
-        if character > 0 and enemy.health <= 0:
-            print('You win')
-        elif character <= 0 and enemy.health > 0:
-            print('You lost')
-        elif character > 0 and enemy.health > 0:
-            fight(enemy)
-
-
+            y = mage.health/enemy_attack
+            for i in range(y):
+                a = random.randint(1,6)
+                g = random.randint(1,6)
+                if a + g > 6:
+                    print(f"You've rolled a {a+g} so you can attack.")
+                    e = (input("Choose between fireball or lazerbeam: ")).lower()
+                    if e == 'fireball':
+                        enemy.health -=fireball
+                    elif e == 'lazerbeam':
+                        enemy.health -=lazerbeam
+                    print(f"You currently have {character} HP. The {enemy.name} currently have {enemy.health} HP.")
+                    input("Press any buttons to continues: ")
+                if character == 0 and enemy.health > 0:
+                    print('You lost')
+                    break
+                elif character > 0 and enemy.health == 0:
+                    print('You win')
+                    break
+                    
+                    
+                elif a + g < 6:
+                    print(f"You've rolled {a+g} so the enemy hit you.")
+                    character -=enemy_attack
+                    print(f"You currently have {character} HP. The {enemy.name} currently have {enemy.health} HP.")
+                    input("Press any buttons to continue: ")
+                if character == 0 and enemy.health > 0:
+                    print('You lost')
+                    break
+                elif character > 0 and enemy.health == 0:
+                    print('You win')
+                    break
+                    
+            
+             
 fight(enemy, warrior, mage)
 
 
