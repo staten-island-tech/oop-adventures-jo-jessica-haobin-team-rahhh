@@ -25,7 +25,7 @@ def tutorial():
                     b = enemies[a]
                     adshiu = input(f"You've encountered an {b}! Enter E to attack, R to run away: ").upper()
                     if adshiu == "E":
-                         from wts import enemy
+                         from wts import fight
                     elif adshiu == "R": 
                          sd = input("You've ran away... The game is over.")
                          break
