@@ -1,6 +1,4 @@
-from classes2 import warrior
-from classes2 import mage
-from classes2 import enemy
+
 
 
 
@@ -11,7 +9,7 @@ def tutorial():
     adi = input(f"Until one day they were attacked by a enemy who goes by {enemy_name}. He was feared throughout the years and until now he didn't attack.")
     usu = input(f"The kingdom was broken down and {enemy_name} took over the area. Houses were burned and people were turned into slaves.")
     hsdo = input(f"It is up to you, to defeat {enemy_name} and restore the kingdom.")
-    dsoh = input("Instructions: To attack, input Y. To heal, input H. To engage in the fight, input P. To run away, input S. To equip your weapon or unequip your weapon, input E. ")
+    dsoh = input("Instructions: To attack, input E. To heal, input H. To engage in the fight, input P. To run away, input R. To equip your weapon or unequip your weapon, input E. ")
     name = input("Please insert your name: ").title()
     x = input(f"Theres two types of classes in this game: Mage and Warrior. What class will you choose {name}? ").title()
 
@@ -19,19 +17,23 @@ def tutorial():
         sesf = f"Now that you chosen your class, you need to collect EXP in order to be a high enough level to fight {enemy_name}."
         EXP = 0
         while EXP != 100:
-            eihd = input("You've encounter an enemy, press P to engage: ").title()
-            if eihd == "P":
-                def engage_fight():
-                    
+            encounterenemy = input("You've encounter an enemy, press P to engage or press R to run: ").title()
+            if encounterenemy == "P":
+                    import random
+                    a = random.randint(0,3)
+                    enemies = ["dragon", "goblin", "zombie", "skeleton"]
+                    b = enemies[a]
+                    adshiu = input(f"You've encountered an {b}! Enter E to attack, R to run away: ").upper()
+                    if adshiu == "E":
+                         from wts import enemy
+                    elif adshiu == "R": 
+                         sd = input("You've ran away... The game is over.")
+                         break
+                    else: 
+                         print("ERROR")
 
-        c = input("Now that you're high enough level.. Would you like to fight the enemy now?: ").title
-        if c == "No":
-            
-            print()
-        while c == "Yes":
-            attack = input("The enemy has appeared, it has 100 health, would you like to attack it? Y/N: ").title()
-            if attack == "Y":
-                enemy(100,20)
+
+
                 
 
 
