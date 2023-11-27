@@ -16,12 +16,12 @@ class warrior(user):
         return f"{self.name}, {self.health}, {self.stab}, {self.types}, {self.knife_throw}"
 
 class mage(user):
-    def __init__(self, name:str, health:int, types:str, fireball:int, lazerbeam:int):
+    def __init__(self, name:str, health:int, types:str, fireball:int, laserbeam:int):
         super().__init__(name, health, types)
         self.fireball = fireball
-        self.lazerbeam = lazerbeam
+        self.laserbeam = laserbeam
     def __str__(self) :
-        return f"{self.name}, {self.health}, {self.types}, {self.fireball}, {self.lazerbeam}"
+        return f"{self.name}, {self.health}, {self.types}, {self.fireball}, {self.laserbeam}"
 
 class enemy(user):
     def __init__(self, name:str, health:int, types:str, damage:int ):
@@ -93,18 +93,18 @@ def fight(enemy, warrior, mage):
         elif d == "mage":
             character = mage.health
             fireball = mage.fireball 
-            lazerbeam = mage.lazerbeam
+            laserbeam = mage.laserbeam
             y = int(mage.health**mage.health)
             for i in range(y):
                 a = random.randint(1,6)
                 g = random.randint(1,6)
                 if a + g > 6:
                     print(f"You've rolled a {a+g} so you can attack.")
-                    e = (input("Choose between fireball or lazerbeam: ")).lower()
+                    e = (input("Choose between fireball or laserbeam: ")).lower()
                     if e == 'fireball':
                         enemy.health -=fireball
-                    elif e == 'lazerbeam':
-                        enemy.health -=lazerbeam
+                    elif e == 'laserbeam':
+                        enemy.health -=laserbeam
                     print(f"You currently have {character} HP. The {enemy.name} currently have {enemy.health} HP.")
                     input("Press any buttons to continues: ")
                 if character == 0 and enemy.health > 0:
@@ -128,7 +128,7 @@ def fight(enemy, warrior, mage):
                     break
                     
             
-             
+            
 fight(enemy, warrior, mage)
 
 
