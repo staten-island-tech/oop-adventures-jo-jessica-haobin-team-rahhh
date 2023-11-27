@@ -1,5 +1,5 @@
 class user():
-    def character(self, name, health, types):
+    def __init__(self, name, health, types):
         self.name = name
         self.health = health
         #health = 100 
@@ -20,6 +20,13 @@ class mage(user):
         self.heal = heal
     def __str__(self) :
         return f"{self.name}, {self.health}, {self.fireball}, {self.types}, {self.heal}"
+    
+class enemy(user):
+    def __init__(self, name:str, health:int, types:str, damage:int ):
+        super().__init__(name, health, types)
+        self.damage = damage 
+    def __str__(self) :
+        return f"{self.name}, {self.health}, {self.types}, {self.damage}"
 
 class stuff_you_can_do(): 
     def attacks(self, attack, heal, start_fight):
