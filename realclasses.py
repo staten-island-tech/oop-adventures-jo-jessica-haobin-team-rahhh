@@ -1,28 +1,35 @@
 class user():
-    def __init__(self, name, health:int):
+    def __init__(self, name:str, health:int, types:str):
         self.name = name
         self.health = health
+        self.types =  types
         #health = 100
 
 class enemy(user):
-    def __init__(self, name:str, health:int, types:str, damage:int)
+    def __init__(self, name:str, health:int, types:str, damage:int):
+        super().__init__(name, health, types)
+        self.damage = damage
+    def __str__(self):
+        return f"{self.name}, {self.health}, {self.types}, {self.damage}"
+
 
 class warrior(user):
-    def __init__(self, name, health, warrior_skills):
-        super().__init__(name, health)
+    def __init__(self, name:str, health:int, types:str, warrior_skills:str):
+        super().__init__(name, health, types)
         self.warrior_skills = warrior_skills
-        print(f"Name:",name,"Health:",health, "Skills:" ,warrior_skills,)
+        print("Name:",name,"Health:",health, "Types:" ,types, "Skills:" ,warrior_skills,)
         #warrior_skills(with weapon equipped) are stab and throw knife
     def __str__(self) :
-        return f"{self.name}, {self.health}, {self.warrior_skills}"
+        return f"{self.name}, {self.health}, {self.types}, {self.warrior_skills}"
 
 class mage(user):
-    def __init__(self, name, health, mage_skills):
-        super().__init__(health, name)
+    def __init__(self, name, health, types, mage_skills):
+        super().__init__(health, name, types)
         self.mage_skills = mage_skills
+        print("Name:" ,name, "Health:" ,health, "Types:" ,types, "Skills:" ,mage_skills,)
         #mage_skills(with weapon equipped) are fireball and heal
     def __str__(self):
-        return f"{self.name}, {self.health}, {self.mage_skills}"
+        return f"{self.name}, {self.health}, {self.types}, {self.mage_skills}"
 
 class stuff_you_can_do(warrior):
     global unequip
@@ -41,9 +48,8 @@ class stuff_you_can_do(warrior):
     def give_up():
         if x == "L".lower():
             print("Game Over")
-    def equip():
-        if x == "E".lower():
-            super().__init__(warrior_skills)
+
+        
 
 
 
@@ -59,5 +65,5 @@ class stuff_you_can_do(warrior):
 #equip = "E"
 
 
-warrior("Jess", 100, "[Stab, Throw Knife]")
+warrior("Jess", 100, "Berserker", "[Stab, Throw Knife]")
 #code doesn't work
