@@ -4,6 +4,8 @@ class user():
         self.health = health
         #health = 100 
         self.type = types
+    def __str__(self) :
+        return f"{self.name}, {self.health}, {self.types}"
 
 class warrior(user):
     def __init__(self, name, health, types, stab, knife_throw):

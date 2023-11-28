@@ -19,9 +19,10 @@ def tutorial():
     if x == "Warrior":
         print(f"Now that you chosen your class, you need to collect EXP in order to be a high enough level to fight {enemy_name}.")
         while EXP != 100:
-            eihd = input("You've encounter an enemy, press P to engage: ").title()
-            if eihd == "P":
-                def engage_fight():
+            a = input("You've encounter an enemy, press P to engage: ").title()
+            if a == "P":
+                from fighting import fight
+                fight()
                     
 
         c == input("Now that you're high enough level.. Would you like to fight the enemy now?: ").title
