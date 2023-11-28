@@ -1,8 +1,15 @@
+from merchant import Merchant
+
+
+NPC = Merchant("MERCHANT", ["Gun", "Sword", "Healing-Potion", "Toy-Goblin"])
+
+Buy = input("What item would you like to buy?")
+item = NPC.sell()
 
 
 
 
-def tutorial():
+""" def tutorial():
     enemy_name = "Mr.Whalen"
     sukds = input("In this game both you and the enemy will have 100 HP. To continue to the instructions to this game, click enter.")
     dsoa = input("There was once a land which was ruled by kings and queens. The kingdom was at peace and everyone went along their way.")
@@ -42,4 +49,4 @@ def tutorial():
 tutorial()
 
 def fighting():
-    input("Now that you picked a class, you are allowed to ")
+    input("Now that you picked a class, you are allowed to ") """
