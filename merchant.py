@@ -1,17 +1,14 @@
 class Merchant:
-    def __init__(self, name, products, coins):
+    def __init__(self, name, products):
         self.name = name
         self.products = products
-        self.coins = coins
-    def sell(self, item, coins):
+
+    def sell(self, item):
         self.products.remove(item)
         print(f"You have purchased {item}!")
-        
-        self.coins.append(coins)
         return item
-    def buy(self, item, coins):
+    def buy(self, item):
         self.products.append(item)
-        self.coins.remove(coins)
         print(f"You have sold {item}!")
 
         

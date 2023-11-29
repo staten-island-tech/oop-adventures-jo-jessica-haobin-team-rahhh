@@ -1,11 +1,16 @@
 class User:
-    def __init__(self, name, coins, inventory, power):
+    def __init__(self, name, currency, inventory, power):
         self.name = name
-        self.coins = coins
+        self.currency = currency
         self.inventory = inventory
         self.power = power
-    def buy(self, item, coins):
+    def buy(self, item):
         self.inventory.append(item)
-        self.coins.remove(coins)
         print(self.inventory)
-        print(self.coins)
+    def remove_currency(self, coins):
+        self.currency -= coins
+        print(f"COINS : {self.currency}")
+    def sell(self, item):
+        
+
+        

@@ -45,20 +45,28 @@ name = input("Please insert your name: ").title()
 
 def SHOP():
      products = ["Gun", "Sword", "Healing-Potion", "Toy-Goblin"]
-     coins = 500
-     NPC = Merchant("MERCHANT", products, coins)
-     
-     for item in products:
-          print(f'ITEM: {item}')
+     coins = 200
+     NPC = Merchant("MERCHANT", products)
+     Users = User(name, coins, [], "idk")     
+
+     Welcoming_to_SHOP = input("Welcome to the SHOP! Would you like to sell items or buy them? BUY/SELL").upper()
+
+     if Welcoming_to_SHOP == "BUY":
+          Buy = input("What item would you like to buy?: ").title()
+          for item in products:
+               print(f'ITEM: {item}, AMOUNT: 100')     
+          sd = NPC.sell(Buy)
+          sad = Users.buy(Buy)
+          sdh = Users.remove_currency(100)
+     if Welcoming_to_SHOP == "SELL":
+          sell = input("What item would you like to sell?: ")
+          ahs = NPC.buy(sell)
+          dhs = Users.sell(sell)
 
 
-     Users = User(name, 200, [], "idk")
-     
 
-     Buy = input("What item would you like to buy?: ").title()
-     NPC.sell(Buy)
-  
 
-          
+
+
 
 SHOP()
