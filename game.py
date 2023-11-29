@@ -1,15 +1,7 @@
 from merchant import Merchant
+from user import User
 
-
-NPC = Merchant("MERCHANT", ["Gun", "Sword", "Healing-Potion", "Toy-Goblin"])
-
-Buy = input("What item would you like to buy?")
-item = NPC.sell()
-
-
-
-
-""" def tutorial():
+def tutorial():
     enemy_name = "Mr.Whalen"
     sukds = input("In this game both you and the enemy will have 100 HP. To continue to the instructions to this game, click enter.")
     dsoa = input("There was once a land which was ruled by kings and queens. The kingdom was at peace and everyone went along their way.")
@@ -17,8 +9,8 @@ item = NPC.sell()
     usu = input(f"The kingdom was broken down and {enemy_name} took over the area. Houses were burned and people were turned into slaves.")
     hsdo = input(f"It is up to you, to defeat {enemy_name} and restore the kingdom.")
     dsoh = input("Instructions: To attack, input E. To heal, input H. To engage in the fight, input P. To run away, input R. To equip your weapon or unequip your weapon, input E. ")
-    name = input("Please insert your name: ").title()
-    x = input(f"Theres two types of classes in this game: Mage and Warrior. What class will you choose {name}? ").title()
+
+"""    x = input(f"Theres two types of classes in this game: Mage and Warrior. What class will you choose {name}? ").title()
 
     if x == "Warrior":
         sesf = f"Now that you chosen your class, you need to collect EXP in order to be a high enough level to fight {enemy_name}."
@@ -41,7 +33,6 @@ item = NPC.sell()
 
 
 
-                
 
 
 
@@ -50,3 +41,24 @@ tutorial()
 
 def fighting():
     input("Now that you picked a class, you are allowed to ") """
+name = input("Please insert your name: ").title()
+
+def SHOP():
+     products = ["Gun", "Sword", "Healing-Potion", "Toy-Goblin"]
+     coins = 500
+     NPC = Merchant("MERCHANT", products, coins)
+     
+     for item in products:
+          print(f'ITEM: {item}')
+
+
+     Users = User(name, 200, [], "idk")
+     
+
+     Buy = input("What item would you like to buy?: ").title()
+     NPC.sell(Buy)
+  
+
+          
+
+SHOP()
