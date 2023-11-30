@@ -30,7 +30,7 @@ class mage(user):
         self.mage_skills = mage_skills
         self.weapon = weapon
         print("Name:" ,name, "Health:" ,health, "Types:" ,types, "Skills:" ,mage_skills,)
-        #mage_skills(with weapon equipped) are fireball, heal, and punch
+        #mage_skills are fireball, heal, and punch
     def __str__(self):
         return f"{self.name}, {self.health}, {self.types}, {self.weapon}, {self.mage_skills}"
 
@@ -41,13 +41,29 @@ class stuff_you_can_do():
         self.give_up = give_up
         self.equip_or_unequip = equip_or_unequip
         if self.start_fight.lower() == "start fight":
-            x = input("Would you like to attack/buff?")
-        if x = 
-            #not sure if user == warrior works
-            if x.lower() == "yes" and user == warrior:
-                y = input("Would you like to use stab, knife throw, or punch?(Buff not available for warriors.)")
-            if x.lower() == "yes" and user == mage:
-                y = input("Would you like to use fireball, punch, or heal?")
+            self.attack_or_buff == input("Would you like to attack/buff?")
+            #not sure if user == warrior/mage works
+        elif self.start_fight.lower() == "no":
+            input("Would you like to start the fight or give up?")
+            if self.attack_or_buff.lower() == "yes" and user == warrior:
+                y = input("Would you like to use stab, knife throw, punch, equip/unequip, or give up?(Buff not available for warriors.)")
+            elif self.attack_or_buff.lower() == "yes" and user == mage:
+                y = input("Would you like to use fireball, punch, heal, equip/unequip, or give up?")
+            elif self.attack_or_buff.lower() == "no":
+                input("Would you like to ")
+        elif self.give_up.lower() == "give up":
+            x = input("Are you sure?")
+            if x.lower() == "yes":
+                print("You lose.")
+        elif self.equip_or_unequip().lower() == "equip" and user == warrior:
+            y = input("Would you like to use stab, knife throw, punch, equip/unequip, or give up?(Buff not available for warriors.)")
+        elif self.equip_or_unequip().lower() == "unequip" and user == warrior:
+            y = input("Would you like to use equip/unequip, punch, or give up?")
+        elif self.equip_or_unequip().lower() == "equip" and user == mage:
+            y = input("Would you like to use fireball, punch, heal, equip/unequip, or give up?")
+        elif self.equip_or_unequip().lower() == "unequip" and user == mage:
+            y = input("Would you like to use equip/unequip, punch, or give up?")
+            #THIS IS NOT FI9NISHED DO NOT ADD ANYMORE UNLESS EDITING 
          
 
     
