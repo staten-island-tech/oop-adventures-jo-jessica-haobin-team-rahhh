@@ -5,3 +5,6 @@ class Enemy:
     def GET_HIT(self, dmg):
         self.HP -= dmg
         print(f"ENEMY'S HEALTH : {self.HP}")
+    def TYPES_OF_ENEMIES(self, type):
+        self.type = type
+        

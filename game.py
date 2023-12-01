@@ -12,9 +12,9 @@ exp = 0
 type = input("Would you like to be a warrior or a mage?: ").upper()
 NPC = Merchant("MERCHANT", products)
 Users = User(name, HEALTH, coins, [], type, exp)  
-
+enemy_name = "Mr.Whalen"
 def tutorial():
-     enemy_name = "Mr.Whalen"
+  
      sukds = input("To continue to the instructions to this game, click enter.")
      dsoa = input("There was once a land which was ruled by kings and queens. The kingdom was at peace and everyone went along their way.")
      adi = input(f"Until one day they were attacked by a enemy who goes by {enemy_name}. He was feared throughout the years and until now he didn't attack.")
@@ -78,8 +78,9 @@ def BATTLE():
      BATTLE_IDK = input("Would you like to attack the enemy? press E to attack: ").upper()
 
 def FINAL_BATTLE():
-     print("dhsu")
-
+     if exp == 100:
+          adsiuhd = f"YOU'VE REACHED THE LEVEL TO BEAT {enemy_name}." 
+     
 
 
 
