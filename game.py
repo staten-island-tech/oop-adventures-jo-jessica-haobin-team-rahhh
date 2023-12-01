@@ -1,15 +1,17 @@
 from merchant import Merchant
 from user import User
 from enemy import Enemy
+import random
 
 #WORLD STUFF YAH YAH
 name = input("Please insert your name: ").title()
 products = ["Gun", "Sword", "Healing-Potion", "Toy-Goblin"]
 coins = 200
 HEALTH = 100
+exp = 0
 type = input("Would you like to be a warrior or a mage?: ").upper()
 NPC = Merchant("MERCHANT", products)
-Users = User(name, HEALTH, coins, [], type)  
+Users = User(name, HEALTH, coins, [], type, exp)  
 
 def tutorial():
      enemy_name = "Mr.Whalen"
@@ -20,15 +22,21 @@ def tutorial():
      hsdo = input(f"It is up to you, to defeat {enemy_name} and restore the kingdom.")
      items_given_by_me = input("You were given 200 coins to start with and 100 HP.")
      dsoh = input("Instructions: To attack, input E. To heal, input H. To engage in the fight, input P. To run away, input R. To equip your weapon or unequip your weapon, input E. ")
-     fjji = input("Where would you like to go? SHOP/BATTLE: ").upper()
+
+def after_tut():
+     fjji = input("Where would you like to go? SHOP/BATTLE(Attack other enemies)/FINAL BATTLE: ").upper()
      if fjji == "SHOP":
           SHOP()
-     if 
+     if fjji == "BATTLE":
+          BATTLE()
+     if fjji == "FINAL BATTLE":
+          FINAL_BATTLE()
+     
 
 
 
 def SHOP():
-     Welcoming_to_SHOP = input("Welcome to the SHOP! Would you like to sell items or buy them? BUY/SELL: ").upper()
+     Welcoming_to_SHOP = input("Welcome to the SHOP! Would you like to sell items or buy them? BUY/SELL/LEAVE: ").upper()
 
      if Welcoming_to_SHOP == "BUY":
           for item in products:
@@ -38,16 +46,39 @@ def SHOP():
           sd = NPC.sell(Buy)
           sad = Users.buy(Buy)
           sdh = Users.remove_currency(100)
+          print("Thank you for shopping...")
+          after_tut()
      if Welcoming_to_SHOP == "SELL":
           sell = input("What item would you like to sell?: ")
           ahs = NPC.buy(sell)
           dhs = Users.sell(sell)
           dhsk = Users.add_currency(100)
+          print("Thank you for shopping...")
+          after_tut()
+     if Welcoming_to_SHOP == "LEAVE":
+          print("Thank you for coming...")
+          after_tut()
+          
 
 def BATTLE():
      Welcoming_to_BATTLE = input("You've entered the battle... press enter to continue..")
+     type = random.randint(1,4)
+     
+     if type == 1:
+          enemy = "Dragon"
+     if type == 2:
+          enemy = "Zombie"
+     if type == 3:
+          enemy = "Skeletion"
+     if type == 4:
+          enemy = "dad"
+
+     #put haobins code grah
+     auhadsuai = input(f"YOU'VE ENCOUNTERED A {enemy}!")
      BATTLE_IDK = input("Would you like to attack the enemy? press E to attack: ").upper()
 
+def FINAL_BATTLE():
+     print("dhsu")
 
 
 
@@ -57,3 +88,4 @@ def BATTLE():
 
 
 tutorial()
+after_tut()

@@ -1,10 +1,11 @@
 class User:
-    def __init__(self, name, hp, currency, inventory, type):
+    def __init__(self, name, hp, currency, inventory, type, exp):
         self.name = name
         self.HP = hp
         self.currency = currency
         self.inventory = inventory
         self.type = type
+        self.exp = exp
     def buy(self, item):
         self.inventory.append(item)
         print(f"INVENTORY : {self.inventory}")
@@ -20,6 +21,9 @@ class User:
     def GET_ATTACKED(self, dmg):
         self.HP -= dmg
         print(f"HP : {self.HP}")
+    def gain_EXP(self, experience_pts):
+        self.exp += experience_pts
+        print(f"EXP : {self.exp}")
 
 class MAGE(User):
     def __init__(self, name, hp, currency, inventory, type, attack):
