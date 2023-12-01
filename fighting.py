@@ -1,12 +1,17 @@
 import random 
 from realclasses import user, warrior, mage, enemy
 
+Dragon = enemy("Dragon", 300, "Hybrid", 60)
+Goblin = enemy("Goblin", 70, "Melee", 10)
+Zombie  = enemy("Zombie", 100, "Melee", 30)
+Skeleton = enemy("Skeleton", 90, "Range", 30)
+Mr_Whalen = enemy("Mr.Whalen", 1000, "Big Boss", 100)
+
 class player:
     def __init__(self, health):
         self.health = health
-    
     def createplayer():
-        global h 
+        global h
         h = (input("Choose between Warrior and Mage: ")).lower()
         if h == "warrior":
             warrior.health = 100
@@ -19,17 +24,12 @@ class player:
     createplayer()
 
 class battle:
-    global Dragon, Goblin, Zombie, Skeleton, Mr_Whalen
 
-    Dragon = enemy("Dragon", 300, "Hybrid", 60)
-    Goblin = enemy("Goblin", 70, "Melee", 10)
-    Zombie  = enemy("Zombie", 100, "Melee", 30)
-    Skeleton = enemy("Skeleton", 90, "Range", 30)
-    Mr_Whalen = enemy("Mr.Whalen", 900, "Comp Sci", 100)
 
     def fight(enemy, warrior, mage):
             global h
-            global Dragon, Zombie, Skeleton, Goblin
+            global Dragon, Zombie, Skeleton, Goblin, Mr_Whalen
+        
             
             b = 1
             if b > 90:
@@ -53,7 +53,7 @@ class battle:
                 enemy_name = Goblin.name
                 enemy_health = Goblin.health
             elif b == 1:
-                print("Final Boss Mr.Whalen has spawned")
+                print("Big Boss Mr.Whalen has spawned")
                 enemy_attack = Mr_Whalen.damage
                 enemy_name = Mr_Whalen.name
                 enemy_health = Mr_Whalen.health
@@ -157,7 +157,7 @@ class battle:
                         print(f"You've rolled a {a+g}")
                         c = (input(f"You can choose to heal or choose to attack: ")).lower()
                         if c == 'heal':
-                            character += 90
+                            character += 100
                             print(f"You've healed 90 HP. You currently have {character} HP. Then {enemy_name} currently have {enemy_health} HP")
                         elif c == 'attack':
                             c = (input("Choose between fireball or laserbeam: ")).lower()
@@ -169,8 +169,8 @@ class battle:
                             elif c == 'laserbeam':
                                 enemy_health -=laserbeam
                                 if  enemy_health <= 0:
-                                    enemy_health= 0
-                    
+                                    enemy_health = 0
+
                     elif a + g < 7:
                         print(f"You've rolled {a+g} so the enemy hit you.")
                         character -=enemy_attack
