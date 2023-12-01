@@ -47,16 +47,12 @@ class battle:
                 enemy_attack = Skeleton.damage
                 enemy_name = Skeleton.name
                 enemy_health = Skeleton.health
-            elif b > 1:
+            elif b >= 1:
                 print("A Goblin spawned")
                 enemy_attack = Goblin.damage
                 enemy_name = Goblin.name
                 enemy_health = Goblin.health
-            elif b == 1:
-                print("Big Boss Mr.Whalen has spawned")
-                enemy_attack = Mr_Whalen.damage
-                enemy_name = Mr_Whalen.name
-                enemy_health = Mr_Whalen.health
+            
 
             print(f"You are on an adventure and you encounter a {enemy_name}. The chances of you attacking and the enemy attacking is decided by 2 dices.")
             input('Press any buttons to continue to fight: ')
