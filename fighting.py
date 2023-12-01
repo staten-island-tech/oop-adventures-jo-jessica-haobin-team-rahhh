@@ -1,11 +1,11 @@
 import random 
 from realclasses import user, warrior, mage, enemy
 
-Dragon = enemy("Dragon", 300, "Hybrid", 60)
-Goblin = enemy("Goblin", 70, "Melee", 10)
-Zombie  = enemy("Zombie", 100, "Melee", 30)
-Skeleton = enemy("Skeleton", 90, "Range", 30)
-Mr_Whalen = enemy("Mr.Whalen", 1000, "Big Boss", 100)
+Dragon = enemy("Dragon", 300, "Hybrid", 60) #xp 40
+Goblin = enemy("Goblin", 70, "Melee", 10)   #xp 5
+Zombie  = enemy("Zombie", 100, "Melee", 30) #xp 15
+Skeleton = enemy("Skeleton", 90, "Range", 30) #xp 10
+Mr_Whalen = enemy("Mr.Whalen", 1000, "Big Boss", 100) #xp 50000
 
 class player:
     def __init__(self, health):
