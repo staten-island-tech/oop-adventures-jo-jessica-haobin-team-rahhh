@@ -2,17 +2,11 @@ import random
 from realclasses import user, warrior, mage, enemy
 
 class player:
-<<<<<<< HEAD
+    def __init__(self, health):
+        self.health = health
     
-    def __init__(self, health):
-        self.health = health
     def createplayer():
-        global h
-=======
-    def __init__(self, health):
-        self.health = health
-    def createplayer():
->>>>>>> 59ae429b308ab12dfa8f2ff5905a78ddb28c585c
+        global h 
         h = (input("Choose between Warrior and Mage: ")).lower()
         if h == "warrior":
             warrior.health = 100
@@ -23,7 +17,6 @@ class player:
             mage.fireball = 70
             mage.laserbeam = 50
     createplayer()
-<<<<<<< HEAD
 
 class battle:
     global Dragon, Goblin, Zombie, Skeleton, Mr_Whalen
@@ -64,46 +57,7 @@ class battle:
                 enemy_attack = Mr_Whalen.damage
                 enemy_name = Mr_Whalen.name
                 enemy_health = Mr_Whalen.health
-=======
 
-class battle:
-
-    Dragon = enemy("Dragon", 300, "Hybrid", 60)
-    Goblin = enemy("Goblin", 70, "Melee", 10)
-    Zombie  = enemy("Zombie", 100, "Melee", 30)
-    Skeleton = enemy("Skeleton", 90, "Range", 30)
-
-    def fight(enemy, warrior, mage):
-            global h
-            Dragon = enemy("Dragon", 300, "Hybrid", 60)
-            Goblin = enemy("Goblin", 70, "Melee", 10)
-            Zombie  = enemy("Zombie", 100, "Melee", 30)
-            Skeleton = enemy("Skeleton", 90, "Range", 30)
-        
-            
-            b = random.randint(1,100)
-            if b > 90:
-                print("A Dragon spawned")
-                enemy_attack = Dragon.damage
-                enemy_name = Dragon.name
-                enemy_health = Dragon.health
-            elif b > 50:
-                print("A Zombie spawned")
-                enemy_attack = Zombie.damage
-                enemy_name = Zombie.name
-                enemy_health = Zombie.health
-            elif b > 30:
-                print("A Skeleton spawned") 
-                enemy_attack = Skeleton.damage
-                enemy_name = Skeleton.name
-                enemy_health = Skeleton.health
-            elif b > 1:
-                print("A Goblin spawned")
-                enemy_attack = Goblin.damage
-                enemy_name = Goblin.name
-                enemy_health = Goblin.health
-
->>>>>>> 59ae429b308ab12dfa8f2ff5905a78ddb28c585c
             print(f"You are on an adventure and you encounter a {enemy_name}. The chances of you attacking and the enemy attacking is decided by 2 dices.")
             input('Press any buttons to continue to fight: ')
             if h == "warrior":
@@ -178,11 +132,7 @@ class battle:
                 for i in range(y):
                     a = random.randint(1,6)
                     g = random.randint(1,6)
-<<<<<<< HEAD
                     if a + g > 7:
-=======
-                    if a + g > 9:
->>>>>>> 59ae429b308ab12dfa8f2ff5905a78ddb28c585c
                         print(f"You've rolled a {a+g} so you can attack.")
                         e = (input("Choose between fireball or laserbeam: ")).lower()
                         if e == 'fireball':
@@ -203,11 +153,7 @@ class battle:
                         print('You win')
                         break
                     
-<<<<<<< HEAD
                     elif a + g == 7:
-=======
-                    elif a + g == 9:
->>>>>>> 59ae429b308ab12dfa8f2ff5905a78ddb28c585c
                         print(f"You've rolled a {a+g}")
                         c = (input(f"You can choose to heal or choose to attack: ")).lower()
                         if c == 'heal':
@@ -224,12 +170,8 @@ class battle:
                                 enemy_health -=laserbeam
                                 if  enemy_health <= 0:
                                     enemy_health= 0
-
-<<<<<<< HEAD
+                    
                     elif a + g < 7:
-=======
-                    elif a + g < 9:
->>>>>>> 59ae429b308ab12dfa8f2ff5905a78ddb28c585c
                         print(f"You've rolled {a+g} so the enemy hit you.")
                         character -=enemy_attack
                         if  character <= 0:

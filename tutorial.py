@@ -17,9 +17,14 @@ def tutorial():
         print(f"Now that you chosen your class, you need to collect EXP in order to be a high enough level to fight {enemy_name}.")
         EXP = 0
         while EXP != 100:
+            a = input("You've encounter an enemy, press P to engage: ")
+            if a == "P":
+                from fighting import fight
+                fight()
 
-            encounterenemy = (input("You've encounter an enemy, press P to engage or press R to run: ")).upper()
-            if encounterenemy == "P":
+
+        encounterenemy = (input("You've encounter an enemy, press P to engage or press R to run: ")).upper()
+        if encounterenemy == "P":
                     import random
                     a = random.randint(0,3)
                     enemies = ["dragon", "goblin", "zombie", "skeleton"]
@@ -32,14 +37,14 @@ def tutorial():
                          fight(dragon, )
                     elif c == "R": 
                          sd = print("You've ran away... The game is over.")
-                         break
+                       
                     else: 
                          print("ERROR")
 
 
 
-            a = input("You've encounter an enemy, press P to engage: ").title()
-            if a == "P":
+        a = input("You've encounter an enemy, press P to engage: ").title()
+        if a == "P":
                 from fighting import fight
                 fight()
                     
