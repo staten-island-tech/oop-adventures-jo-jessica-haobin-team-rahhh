@@ -4,6 +4,8 @@ class user():
         self.health = health
         #health = 100 
         self.type = types
+    def __str__(self) :
+        return f"{self.name}, {self.health}, {self.types}"
 
 class warrior(user):
     def __init__(self, name, health, types, stab, knife_throw):
@@ -22,7 +24,7 @@ class mage(user):
         return f"{self.name}, {self.health}, {self.fireball}, {self.types}, {self.heal}"
     
 class enemy(user):
-    def __init__(self, name:str, health:int, types:str, damage:int ):
+    def __init__(self, name, health, types, damage):
         super().__init__(name, health, types)
         self.damage = damage 
     def __str__(self) :
