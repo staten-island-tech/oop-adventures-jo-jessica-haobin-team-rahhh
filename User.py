@@ -1,3 +1,4 @@
+import random
 class User:
     def __init__(self, name, hp, currency, inventory, type, exp):
         self.name = name
@@ -24,9 +25,8 @@ class User:
     def gain_EXP(self, experience_pts):
         self.exp += experience_pts
         print(f"EXP : {self.exp}")
+    def fight(self, dmg, stab, knife_throw):
+        self.HP -= dmg
 
-class MAGE(User):
-    def __init__(self, name, hp, currency, inventory, type, attack):
-        super().__init__(name, hp, currency, inventory, type)
-        self.attack = attack
+
         

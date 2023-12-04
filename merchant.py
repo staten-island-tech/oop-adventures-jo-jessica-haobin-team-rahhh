@@ -10,5 +10,6 @@ class Merchant:
         self.products.append(item)
         print(f"You have sold {item}!")
         return item
+    
 
         

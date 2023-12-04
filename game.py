@@ -1,6 +1,6 @@
 from merchant import Merchant
 from user import User
-from enemy import Enemy
+from enemy import ENEMY
 import random
 
 #WORLD STUFF YAH YAH
@@ -12,7 +12,10 @@ exp = 0
 type = input("Would you like to be a warrior or a mage?: ").upper()
 NPC = Merchant("MERCHANT", products)
 Users = User(name, HEALTH, coins, [], type, exp)  
-enemy_name = "Mr.Whalen"
+enemys_name = "Mr.Whalen"
+fin_enemy_health = 1000
+
+
 def tutorial():
   
      sukds = input("To continue to the instructions to this game, click enter.")
@@ -65,21 +68,27 @@ def BATTLE():
      type = random.randint(1,4)
      
      if type == 1:
-          enemy = "Dragon"
+          enemy_name = "Dragon"
      if type == 2:
-          enemy = "Zombie"
+          enemy_name = "Zombie"
      if type == 3:
-          enemy = "Skeletion"
+          enemy_name = "Skeletion"
      if type == 4:
-          enemy = "dad"
+          enemy_name = "dad"
 
-     #put haobins code grah
+     enemy = ENEMY(enemy_name, )
+
      auhadsuai = input(f"YOU'VE ENCOUNTERED A {enemy}!")
      BATTLE_IDK = input("Would you like to attack the enemy? press E to attack: ").upper()
+     if BATTLE_IDK == "E":
+          hf = enemy.
+     #put haobins code grah     
+
 
 def FINAL_BATTLE():
      if exp == 100:
-          adsiuhd = f"YOU'VE REACHED THE LEVEL TO BEAT {enemy_name}." 
+          adsiuhd = f"YOU'VE REACHED THE LEVEL TO BEAT ." 
+
      
 
 
