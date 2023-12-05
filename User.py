@@ -25,7 +25,7 @@ class User:
     def gain_EXP(self, experience_pts):
         self.exp += experience_pts
         print(f"EXP : {self.exp}")
-    def fight(self, dmg, stab, knife_throw):
+    def fight(self, dmg):
         self.HP -= dmg
 
 

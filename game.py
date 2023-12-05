@@ -2,6 +2,7 @@ from merchant import Merchant
 from user import User
 from enemy import ENEMY
 import random
+from tutorial import tut
 
 #WORLD STUFF YAH YAH
 name = input("Please insert your name: ").title()
@@ -12,19 +13,11 @@ exp = 0
 type = input("Would you like to be a warrior or a mage?: ").upper()
 NPC = Merchant("MERCHANT", products)
 Users = User(name, HEALTH, coins, [], type, exp)  
-enemys_name = "Mr.Whalen"
+d = tut("Mr.Whalen")
 fin_enemy_health = 1000
 
+d.tutorial()
 
-def tutorial():
-  
-     sukds = input("To continue to the instructions to this game, click enter.")
-     dsoa = input("There was once a land which was ruled by kings and queens. The kingdom was at peace and everyone went along their way.")
-     adi = input(f"Until one day they were attacked by a enemy who goes by {enemy_name}. He was feared throughout the years and until now he didn't attack.")
-     usu = input(f"The kingdom was broken down and {enemy_name} took over the area. Houses were burned and people were turned into slaves.")
-     hsdo = input(f"It is up to you, to defeat {enemy_name} and restore the kingdom.")
-     items_given_by_me = input("You were given 200 coins to start with and 100 HP.")
-     dsoh = input("Instructions: To attack, input E. To heal, input H. To engage in the fight, input P. To run away, input R. To equip your weapon or unequip your weapon, input E. ")
 
 def after_tut():
      fjji = input("Where would you like to go? SHOP/BATTLE(Attack other enemies)/FINAL BATTLE: ").upper()
@@ -34,10 +27,7 @@ def after_tut():
           BATTLE()
      if fjji == "FINAL BATTLE":
           FINAL_BATTLE()
-     
-
-
-
+after_tut()    
 def SHOP():
      Welcoming_to_SHOP = input("Welcome to the SHOP! Would you like to sell items or buy them? BUY/SELL/LEAVE: ").upper()
 
@@ -61,41 +51,37 @@ def SHOP():
      if Welcoming_to_SHOP == "LEAVE":
           print("Thank you for coming...")
           after_tut()
-          
-
 def BATTLE():
      Welcoming_to_BATTLE = input("You've entered the battle... press enter to continue..")
      type = random.randint(1,4)
      
      if type == 1:
           enemy_name = "Dragon"
+          enemyhealth = 100 
      if type == 2:
           enemy_name = "Zombie"
+          enemyhealth = 200
      if type == 3:
           enemy_name = "Skeletion"
+          enemyhealth = 250
      if type == 4:
           enemy_name = "dad"
+          enemyhealth = 400
 
-     enemy = ENEMY(enemy_name, )
+     enemy = ENEMY(enemy_name, enemyhealth)
 
-     auhadsuai = input(f"YOU'VE ENCOUNTERED A {enemy}!")
+     auhadsuai = input(f"YOU'VE ENCOUNTERED A {enemy_name}!")
      BATTLE_IDK = input("Would you like to attack the enemy? press E to attack: ").upper()
      if BATTLE_IDK == "E":
-          hf = enemy.
+          a = random.randint(1,6)
+          g = random.randint(1,6)
+          if a + g > 6:
+               print(f"You've rolled a {a+g} so you can attack the enemy.")
+               e = input("Choose between a stab or a knife throw: ").lower()
+
      #put haobins code grah     
-
-
 def FINAL_BATTLE():
      if exp == 100:
           adsiuhd = f"YOU'VE REACHED THE LEVEL TO BEAT ." 
 
      
-
-
-
-
-
-
-
-tutorial()
-after_tut()
