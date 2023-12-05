@@ -6,7 +6,7 @@
 
 class inventory:
     def __init__(self, inventory):
-        self.inventory = inventory
+        self.inventory = [inventory]
     def pick_stuff_up(self, items):
         self.inventory.append(items)
         print(self.inventory)
