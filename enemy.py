@@ -20,4 +20,5 @@ class ENEMY:
             self.hp -= stab
         def knife_throw():
             self.hp -= knife_throw
+        def 
             

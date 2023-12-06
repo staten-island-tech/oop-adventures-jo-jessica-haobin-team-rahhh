@@ -17,8 +17,6 @@ d = tut("Mr.Whalen")
 fin_enemy_health = 1000
 
 d.tutorial()
-
-
 def after_tut():
      fjji = input("Where would you like to go? SHOP/BATTLE(Attack other enemies)/FINAL BATTLE: ").upper()
      if fjji == "SHOP":
@@ -27,7 +25,6 @@ def after_tut():
           BATTLE()
      if fjji == "FINAL BATTLE":
           FINAL_BATTLE()
-after_tut()    
 def SHOP():
      Welcoming_to_SHOP = input("Welcome to the SHOP! Would you like to sell items or buy them? BUY/SELL/LEAVE: ").upper()
 
@@ -42,7 +39,7 @@ def SHOP():
           print("Thank you for shopping...")
           after_tut()
      if Welcoming_to_SHOP == "SELL":
-          sell = input("What item would you like to sell?: ")
+          sell = input("What item would you like to sell?: ").title()
           ahs = NPC.buy(sell)
           dhs = Users.sell(sell)
           dhsk = Users.add_currency(100)
@@ -73,15 +70,16 @@ def BATTLE():
      auhadsuai = input(f"YOU'VE ENCOUNTERED A {enemy_name}!")
      BATTLE_IDK = input("Would you like to attack the enemy? press E to attack: ").upper()
      if BATTLE_IDK == "E":
-          a = random.randint(1,6)
-          g = random.randint(1,6)
-          if a + g > 6:
-               print(f"You've rolled a {a+g} so you can attack the enemy.")
-               e = input("Choose between a stab or a knife throw: ").lower()
+          User.rolling_da_dices()
+
 
      #put haobins code grah     
 def FINAL_BATTLE():
-     if exp == 100:
+     if exp >= 100:
           adsiuhd = f"YOU'VE REACHED THE LEVEL TO BEAT ." 
+     if exp < 100:
+          print("You are not high enough level.")
+          print("returning to main screen...")
+          after_tut()
 
-     
+after_tut()    
