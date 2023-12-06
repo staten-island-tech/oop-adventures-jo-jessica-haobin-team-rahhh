@@ -4,15 +4,7 @@ class user():
         self.health = health
         self.types =  types
         #health = 100
-
-class enemy(user):
-    def __init__(self, name:str, health:int, types:str, damage:int, weapon:str):
-        super().__init__(name, health, types)
-        self.damage = damage
-        self.weapon = weapon
-    def __str__(self):
-        return f"{self.name}, {self.health}, {self.types}, {self.weapon}, {self.damage}"
-
+#this is a substitute for josephine's code
 
 class warrior(user):
     def __init__(self, name:str, health:int, types:str, weapon:str, warrior_skills:str):
@@ -34,6 +26,12 @@ class mage(user):
     def __str__(self):
         return f"{self.name}, {self.health}, {self.types}, {self.weapon}, {self.mage_skills}"
 
+type = input("Would you like to be a warrior or mage?")
+if type == "warrior":
+    user.name == warrior.name
+if type == "mage":
+    user.name == mage.name
+
 class stuff_you_can_do():
     def start_fight():
         x = input("Would you like to attack/buff, give up, or equip/unequip?")
@@ -45,25 +43,51 @@ class stuff_you_can_do():
             stuff_you_can_do.equip_or_unequip()
             
     def attack_or_buff():
-        if user.lower() == "warrior" and warrior.weapon.lower() == "knife":
-            input("Would you like to use stab, knife throw, equip/unequip, or give up?(Buff not available for warriors.)")
-        elif user.types.lower() == "mage" and mage.weapon.lower() == "staff":
-            input("Would you like to use fireball, punch, heal, equip/unequip, or give up?")
-        elif user.types.lower() == "warrior" and warrior.weapon.lower() == "fist":
-            input("Would you like to use punch, give up, or equip/unequip?")
-        elif user.types.lower() == "mage" and mage.weapon.lower() == "fist":
-            input("Would you like to use punch, give up, or equip/unequip?")
+        #type is part of josephine's code
+        if type == "warrior" and warrior.weapon.lower() == "knife":
+            x = input("Would you like to use stab, knife throw, equip/unequip, or give up?(Buff not available for warriors.)")
+            if x.lower() == "equip/unequip":
+                stuff_you_can_do.equip_or_unequip()
+            if x.lower() == "give up":
+                stuff_you_can_do.give_up()
+        elif type == "mage" and mage.weapon.lower() == "staff":
+            x = input("Would you like to use fireball, lazarbeam, punch, heal, equip/unequip, or give up?")
+            if x.lower() == "equip/unequip":
+                stuff_you_can_do.equip_or_unequip()
+            if x.lower() == "give up":
+                stuff_you_can_do.give_up()
+        elif type == "warrior" and warrior.weapon.lower() == "fist":
+            x = input("Would you like to use punch, give up, or equip/unequip?")
+            if x.lower() == "equip/unequip":
+                stuff_you_can_do.equip_or_unequip()
+            if x.lower() == "give up":
+                stuff_you_can_do.give_up()
+        elif type == "mage" and mage.weapon.lower() == "fist":
+            x = input("Would you like to use punch, give up, or equip/unequip?")
+            if x.lower() == "equip/unequip":
+                stuff_you_can_do.equip_or_unequip()
+            if x.lower() == "give up":
+                stuff_you_can_do.give_up()
 
     def give_up():
-        x = input("Are you sure?")
+        x = input("Are you sure?: Yes or No")
         if x.lower() == "yes":
             print("You lose.")
         if x.lower() == "no":
-            input("Would you like to attack/buff, give up, or equip/unequip?")
+            x = input("Would you like to attack/buff, give up, or equip/unequip?")
+            if x.lower() == "equip/unequip":
+                stuff_you_can_do.equip_or_unequip()
+            if x.lower() == "give up":
+                stuff_you_can_do.give_up()
 
     def equip_or_unequip():
         x = input("Would you like to equip or unequip?")
         if x.lower() == "equip":
+            warrior.weapon.lower() == "knife"
+            mage.weapon.lower() == "staff"
+        if x.lower() == "unequip":
+            warrior.weapon.lower() == "fist"
+            mage.weapon.lower() == "fist"
 
     
     
@@ -142,8 +166,7 @@ class stuff_you_can_do():
     
     
     
-    
-stuff_you_can_do() == ()
+
     
 warrior("Jess", 100, "Warrior", "Knife", ["Stab", "Throw Knife", "Punch"])
 Warrior_Jessica = stuff_you_can_do("start fight", "")
