@@ -28,10 +28,15 @@ class mage(user):
 
 type = input("Would you like to be a warrior or mage?")
 if type == "warrior":
-    user.name == warrior.name
+    user("bla", "bla", "bla") == warrior("bla", "bla", "bla", "bla", "bla")
+    warrior.weapon == "knife"
+    warrior.warrior_skills == "stab", "knife throw", "punch"
 if type == "mage":
-    user.name == mage.name
-
+    user("bla", "bla", "bla") == mage("bla", "bla", "bla", "bla", "bla")
+    mage.weapon.lower() == "staff"
+    mage.mage_skills.lower() == "fireball", "lazarbeam", "heal", "punch"
+    #this is a substitute for josephine's code
+#code must die pls die why r u not wrokign pls die pls die
 class stuff_you_can_do():
     def start_fight():
         x = input("Would you like to attack/buff, give up, or equip/unequip?")
@@ -168,8 +173,7 @@ class stuff_you_can_do():
     
 
     
-warrior("Jess", 100, "Warrior", "Knife", ["Stab", "Throw Knife", "Punch"])
-Warrior_Jessica = stuff_you_can_do("start fight", "")
+stuff_you_can_do.start_fight()
     #fill in stuff_you_can_do()
     
 
