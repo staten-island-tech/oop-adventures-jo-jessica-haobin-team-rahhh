@@ -1,3 +1,4 @@
+import random
 class User:
     def __init__(self, name, hp, currency, inventory, type, exp):
         self.name = name
@@ -24,9 +25,16 @@ class User:
     def gain_EXP(self, experience_pts):
         self.exp += experience_pts
         print(f"EXP : {self.exp}")
+    def fight(self, dmg):
+        self.HP -= dmg
+    def rolling_da_dices():
+        a = random.randint(1,6)
+        g = random.randint(1,6)
+        if a + g > 6:
+            print(f"You've rolled a {a+g} so you can attack the enemy.")
+        if a + g < 6:
+            print(f"You've rolled a {a+g}, you are not allowed to attack the enemy until the next roll.")
 
-class MAGE(User):
-    def __init__(self, name, hp, currency, inventory, type, attack):
-        super().__init__(name, hp, currency, inventory, type)
-        self.attack = attack
+
+
         

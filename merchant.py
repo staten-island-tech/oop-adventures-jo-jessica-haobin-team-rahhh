@@ -22,5 +22,6 @@ class Merchant:
 >>>>>>> b875963dbbf0afc230141ae46d4f715bafa16f16
         print(f"You have sold {item}!")
         return item
+    
 
         
