@@ -13,12 +13,13 @@ class ENEMY:
     def __init__(self, name,  hp):
         self.name = name
         self.hp = hp
-    def fight(self, stab, knife_throw):
-        stab = 100
-        knife_throw = 50
-        def stab():
-            self.hp -= stab
-        def knife_throw():
-            self.hp -= knife_throw
-        def 
+    def stab(self, stab):
+        self.hp -= stab
+    def knife_throw(self, knife_throw):
+        self.hp -= knife_throw
+    def roll_die(self, dice_1, dice_2):
+        if dice_1 + dice_2 <= 6:
+            print(f"The enemy has rolled a {dice_1 + dice_2}. The enemy has it's turn skipped...")
+        if dice_1 + dice_2 > 6:
+            print(f"The enemy has rolled a {dice_1 + dice_2}. It attacks you.")
             

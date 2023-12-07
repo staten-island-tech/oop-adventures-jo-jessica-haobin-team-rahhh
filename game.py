@@ -15,8 +15,12 @@ NPC = Merchant("MERCHANT", products)
 Users = User(name, HEALTH, coins, [], type, exp)  
 d = tut("Mr.Whalen")
 fin_enemy_health = 1000
+g = random.randint(1,6)
+p = random.randint(1,6)
 
-d.tutorial()
+#create a function that allows the user to take out items and use it to attack.
+
+""" d.tutorial()  """
 def after_tut():
      fjji = input("Where would you like to go? SHOP/BATTLE(Attack other enemies)/FINAL BATTLE: ").upper()
      if fjji == "SHOP":
@@ -69,8 +73,12 @@ def BATTLE():
 
      auhadsuai = input(f"YOU'VE ENCOUNTERED A {enemy_name}!")
      BATTLE_IDK = input("Would you like to attack the enemy? press E to attack: ").upper()
-     if BATTLE_IDK == "E":
-          User.rolling_da_dices()
+
+     while enemyhealth > 0:
+               Users.rolling_da_dices(g, p)
+               enemy.roll_die(g, p)
+               
+          
 
 
      #put haobins code grah     
@@ -82,4 +90,4 @@ def FINAL_BATTLE():
           print("returning to main screen...")
           after_tut()
 
-after_tut()    
+BATTLE()
