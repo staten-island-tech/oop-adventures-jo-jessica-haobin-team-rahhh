@@ -1,4 +1,6 @@
 import random
+
+
 class User:
     def __init__(self, name, hp, currency, inventory, type, exp):
         self.name = name
@@ -32,6 +34,8 @@ class User:
             print(f"You've rolled a {dice_1 + dice_2}. Your turn has been skipped...")
         if dice_1 + dice_2 > 6:
             print(f"You've rolled a {dice_1 + dice_2}. You are able to attack the enemy.")
+            
+            
             
 
 

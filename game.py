@@ -66,7 +66,7 @@ def BATTLE():
           enemy_name = "Skeletion"
           enemyhealth = 250
      if type == 4:
-          enemy_name = "dad"
+          enemy_name = "dsauidiu"
           enemyhealth = 400
 
      enemy = ENEMY(enemy_name, enemyhealth)
@@ -75,8 +75,11 @@ def BATTLE():
      BATTLE_IDK = input("Would you like to attack the enemy? press E to attack: ").upper()
 
      while enemyhealth > 0:
-               Users.rolling_da_dices(g, p)
+               dh = Users.rolling_da_dices(g, p)
+               if dh == f"You've rolled a {g + p}. You are able to attack the enemy.":
+                    print("hfuhsa")
                enemy.roll_die(g, p)
+               break
                
           
 
