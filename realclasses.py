@@ -7,11 +7,10 @@ class user():
 #this is a substitute for josephine's code
 
 class warrior(user):
-    def __init__(self, name:str, health:int, types:str, weapon:str, warrior_skills:str):
+    def __init__(self, name:str, health:int, types:str):
         super().__init__(name, health, types)
-        self.warrior_skills = warrior_skills
-        self.weapon = weapon
-        print("Name:",name,"Health:",health, "Types:" ,types, "Skills:" ,warrior_skills,)
+        print("Name:",name,"Health:",health, "Types:" ,types,)
+    warrior_skills = ""
         #warrior_skills are stab, throw knife, and punch
     def __str__(self) :
         return f"{self.name}, {self.health}, {self.types}, {self.weapon} {self.warrior_skills}"
@@ -28,13 +27,13 @@ class mage(user):
 
 type = input("Would you like to be a warrior or mage?")
 if type == "warrior":
-    user("bla", "bla", "bla") == warrior("bla", "bla", "bla", "bla", "bla")
-    warrior.weapon == "knife"
-    warrior.warrior_skills == "stab", "knife throw", "punch"
+    warrior.weapon.lower() == "knife"
+    warrior.warrior_skills.lower() == "stab", "knife throw", "punch"
+    user("bla", "bla", "bla") == warrior("bla", "bla", "bla")
 if type == "mage":
-    user("bla", "bla", "bla") == mage("bla", "bla", "bla", "bla", "bla")
     mage.weapon.lower() == "staff"
     mage.mage_skills.lower() == "fireball", "lazarbeam", "heal", "punch"
+    user("bla", "bla", "bla") == mage("bla", "bla", "bla")
     #this is a substitute for josephine's code
 #code must die pls die why r u not wrokign pls die pls die
 class stuff_you_can_do():
@@ -173,7 +172,7 @@ class stuff_you_can_do():
     
 
     
-stuff_you_can_do.start_fight()
+stuff_you_can_do.give_up()
     #fill in stuff_you_can_do()
     
 
