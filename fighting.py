@@ -67,21 +67,21 @@ def warrior_fight(warrior, enemy):
                 enemy_health -=stab
                 if  enemy_health <= 0:
                     enemy_health = 0
-                    print(f"You currently have {character} HP. The {enemy_name} currently have  {enemy_health} HP.")
+                    print(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.")
                     print('You win')
                     break
                 else: 
-                    print(f"You currently have {character} HP. The {enemy_name} currently have  {enemy_health} HP.")
+                    print(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.")
                     input('Press any button to continue: ')
             elif e == 'knife throw':
                 enemy_health -=knife_throw
                 if enemy_health <= 0:
                     enemy_health = 0
-                    print(f"You currently have {character} HP. The {enemy_name} currently have  {enemy_health} HP.")
+                    print(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.")
                     print('You win')
                     break
                 else: 
-                    print(f"You currently have {character} HP. The {enemy_name} currently have  {enemy_health} HP.")
+                    print(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.")
                     input('Press any button to continue: ')
                         
         elif a + g == 6:
@@ -97,21 +97,21 @@ def warrior_fight(warrior, enemy):
                     enemy_health -=stab
                     if  enemy_health <= 0:
                         enemy_health = 0
-                        print(f"You currently have {character} HP. The {enemy_name} currently have  {enemy_health} HP.")
+                        print(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.")
                         print('You win')
                         break
                     else: 
-                        print(f"You currently have {character} HP. The {enemy_name} currently have  {enemy_health} HP.")
+                        print(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.")
                         input('Press any button to continue: ')
                 elif c == 'knife throw':
                     enemy_health -=knife_throw
                     if  enemy_health <= 0:
                         enemy_health = 0
-                        print(f"You currently have {character} HP. The {enemy_name} currently have  {enemy_health} HP.")
+                        print(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.")
                         print('You win')
                         break
                     else: 
-                        print(f"You currently have {character} HP. The {enemy_name} currently have  {enemy_health} HP.")
+                        print(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.")
                         input('Press any button to continue: ')
 
         elif a + g < 6:
@@ -119,11 +119,11 @@ def warrior_fight(warrior, enemy):
             character -=enemy_attack
             if  character <= 0:
                 character = 0
-                print(f"You currently have {character} HP. The {enemy_name} currently have  {enemy_health} HP.")
+                print(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.")
                 print('You lost')
                 break
             else: 
-                print(f"You currently have {character} HP. The {enemy_name} currently have  {enemy_health} HP.")
+                print(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.")
                 input('Press any button to continue: ')
 
 def mage_fight(mage, enemy):
@@ -144,21 +144,21 @@ def mage_fight(mage, enemy):
                 enemy_health -=fireball
                 if  enemy_health <= 0:
                     enemy_health= 0
-                    print(f"You currently have {character} HP. The {enemy_name} currently have  {enemy_health} HP.")
+                    print(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.")
                     print('You win')
                     break
                 else: 
-                    print(f"You currently have {character} HP. The {enemy_name} currently have  {enemy_health} HP.")
+                    print(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.")
                     input('Press any button to continue: ')
             elif e == 'laserbeam':
                 enemy_health -=laserbeam
                 if  enemy_health <= 0:
                     enemy_health = 0
-                    print(f"You currently have {character} HP. The {enemy_name} currently have  {enemy_health} HP.")
+                    print(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.")
                     print('You win')
                     break
                 else: 
-                    print(f"You currently have {character} HP. The {enemy_name} currently have  {enemy_health} HP.")
+                    print(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.")
                     input('Press any button to continue: ')
                 
                     
@@ -175,22 +175,22 @@ def mage_fight(mage, enemy):
                     enemy_health -=fireball
                     if  enemy_health <= 0:
                         enemy_health = 0
-                        print(f"You currently have {character} HP. The {enemy_name} currently have  {enemy_health} HP.")
+                        print(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.")
                         print('You win')
                         break
                     else: 
-                        print(f"You currently have {character} HP. The {enemy_name} currently have  {enemy_health} HP.")
+                        print(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.")
                         input('Press any button to continue: ')
 
                 elif c == 'laserbeam':
                     enemy_health -=laserbeam
                     if  enemy_health <= 0:
                         enemy_health = 0
-                        print(f"You currently have {character} HP. The {enemy_name} currently have  {enemy_health} HP.")
+                        print(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.")
                         print('You win')
                         break
                     else: 
-                        print(f"You currently have {character} HP. The {enemy_name} currently have  {enemy_health} HP.")
+                        print(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.")
                         input('Press any button to continue: ')
 
         elif a + g < 7:
@@ -202,7 +202,7 @@ def mage_fight(mage, enemy):
                 print('You lost')
                 break
             else: 
-                print(f"You currently have {character} HP. The {enemy_name} currently have  {enemy_health} HP.")
+                print(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.")
                 input('Press any button to continue: ')
 
 
@@ -216,6 +216,7 @@ def fight(enemy, warrior, mage):
         warrior_fight(warrior, enemy)    
     elif h == "mage":
         mage_fight(mage, enemy)
+
 fight(enemy,warrior,mage)
 
 
