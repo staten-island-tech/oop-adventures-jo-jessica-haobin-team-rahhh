@@ -29,9 +29,10 @@ class User:
         print(f"EXP : {self.exp}")
     def fight(self, dmg):
         self.HP -= dmg
-    def rolling_da_dices(self, dice_1, dice_2):
+    def attack(self, dice_1, dice_2, enemy):
         if dice_1 + dice_2 <= 6:
             print(f"You've rolled a {dice_1 + dice_2}. Your turn has been skipped...")
+            enemy.hp = enemy.hp - 50
         if dice_1 + dice_2 > 6:
             print(f"You've rolled a {dice_1 + dice_2}. You are able to attack the enemy.")
             
