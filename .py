@@ -1,18 +1,18 @@
+c = 0
 def factor(x):
-    global y
+    global c
     for i in range(1, x+1):
         if x%i == 0:
-            y = print(i)
+            c += 1
 
-factor(10)
 
 def prime_or_not(x):
-    global y
+    global c
     factor(x)
-    if y[0] == 1:
-        if y[1] == x:
-            print('prime')
+    if c == 2:
+        print('prime')
     else:
         print('not prime')
 
-prime_or_not(10)
+
+prime_or_not(11923)
