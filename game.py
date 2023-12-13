@@ -17,6 +17,8 @@ d = tut("Mr.Whalen")
 fin_enemy_health = 1000
 g = random.randint(1,6)
 p = random.randint(1,6)
+h = random.randint(1,6)
+o = random.randint(1,6)
 
 #create a function that allows the user to take out items and use it to attack.
 
@@ -59,27 +61,34 @@ def BATTLE():
      if type == 1:
           enemy_name = "Dragon"
           enemyhealth = 100 
+          enemy_dmg = 27
      if type == 2:
           enemy_name = "Zombie"
           enemyhealth = 200
+          enemy_dmg = 32
      if type == 3:
           enemy_name = "Skeletion"
           enemyhealth = 250
+          enemy_dmg = 38
      if type == 4:
           enemy_name = "dsauidiu"
           enemyhealth = 400
+          enemy_dmg = 41
 
      enemy = ENEMY(enemy_name, enemyhealth)
 
      auhadsuai = input(f"YOU'VE ENCOUNTERED A {enemy_name}!")
      BATTLE_IDK = input("Would you like to attack the enemy? press E to attack: ").upper()
 
-     while enemyhealth > 0:
-               dh = Users.rolling_da_dices(g, p)
-               if dh == f"You've rolled a {g + p}. You are able to attack the enemy.":
-                    print("hfuhsa")
-               enemy.roll_die(g, p)
+
+     while enemy.hp > 0:
+               dh = Users.attack(g, p, enemy, 50)
+               print(enemy.hp)
+               uds = enemy.attack(h, o, Users, 50)
+               print(Users.hp)
                break
+               
+          
                
           
 
