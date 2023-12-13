@@ -7,36 +7,40 @@ class user():
 #this is a substitute for josephine's code
 
 class warrior(user):
-    def __init__(self, name:str, health:int, types:str, weapon:str, warrior_skills:str):
+    def __init__(self, name:str, health:int, types:str, warrior_weapon:str, warrior_skills:str):
         super().__init__(name, health, types)
         self.warrior_skills = warrior_skills
-        self.weapon = weapon
-        print("Name:",name,"Health:",health, "Types:" ,types, "Weapon:" ,weapon, "Warrior Skills" ,warrior_skills,)
+        self.weapon = warrior_weapon
+        print("Name:",name,"Health:",health, "Types:" ,types, "Weapon:" ,warrior_weapon, "Warrior Skills" ,warrior_skills,)
         #warrior_skills are stab, throw knife, and punch
     def __str__(self) :
         return f"{self.name}, {self.health}, {self.types}, {self.weapon} {self.warrior_skills}"
 
 class mage(user):
-    def __init__(self, name:str, health:int, types:str, weapon:str, mage_skills:str):
+    def __init__(self, name:str, health:int, types:str, mage_weapon:str, mage_skills:str):
         super().__init__(health, name, types)
         self.mage_skills = mage_skills
-        self.weapon = weapon
-        print("Name:" ,name, "Health:" ,health, "Types:" ,types, "Skills:" ,mage_skills,)
+        self.weapon = mage_weapon
+        print("Name:" ,name, "Health:" ,health, "Types:" ,types, "Weapon:" ,mage_weapon, "Skills:" ,mage_skills,)
         #mage_skills are fireball, lazerbeam, heal, and punch
     def __str__(self):
         return f"{self.name}, {self.health}, {self.types}, {self.weapon}, {self.mage_skills}"
-
-type = input("Would you like to be a warrior or mage?")
-if type == "warrior":
-    warrior.weapon.lower() == "knife"
-    warrior.warrior_skills.lower() == ["stab", "knife throw", "punch"]
-    user("bla", "bla", "bla") == warrior("bla", "bla", "bla")
-if type == "mage":
-    mage.weapon.lower() == "staff"
-    mage.mage_skills.lower() == ["fireball", "lazarbeam", "heal", "punch"]
-    user("bla", "bla", "bla") == mage("bla", "bla", "bla")
+    
+class type(mage, warrior):
+    def __init__(self):
+        super(type, self).__init__(self, warrior_weapon, mage_weapon)
+        type = input("Would you like to be a warrior or mage?")
+        if type == "warrior":
+            warrior_weapon.lower() == "knife"
+            warrior.warrior_skills.lower() == ["stab", "knife throw", "punch"]
+            user("bla", "bla", "bla") == warrior("bla", "bla", "bla")
+        if type == "mage":
+            mage_weapon.lower() == "staff"
+            mage.mage_skills.lower() == ["fireball", "lazarbeam", "heal", "punch"]
+            user("bla", "bla", "bla") == mage("bla", "bla", "bla")
     #this is a substitute for josephine's code
-#code must die pls die why r u not wrokign pls die pls die
+#HOW DO I MAKE THIS WORKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
+#the problem is that warrior_weapon is in init
 class stuff_you_can_do():
     def start_fight():
         x = input("Would you like to attack/buff, give up, or equip/unequip?")
