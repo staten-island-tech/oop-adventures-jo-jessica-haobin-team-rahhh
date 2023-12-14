@@ -31,7 +31,7 @@ class battle:
             global Dragon, Zombie, Skeleton, Goblin, Mr_Whalen
         
             
-            b = 1
+            b = random.randint(1,100)
             if b > 90:
                 print("A Dragon spawned")
                 enemy_attack = Dragon.damage
@@ -98,13 +98,13 @@ class battle:
                             character += 90
                             print(f"You've healed 90 HP. You currently have {character} HP. Then {enemy_name} currently have {enemy_health} HP")
                         elif c == 'attack':
-                            c = (input("Choose between fireball or laserbeam: ")).lower()
-                            if  c== 'fireball':
+                            c = (input("Choose between stab or knife throw: ")).lower()
+                            if  c== 'stab':
                                 enemy_health -=stab
                                 if  enemy_health <= 0:
                                     enemy_health= 0
                                 print(f"You currently have {character} HP. The {enemy_name} currently have  {enemy_health} HP.")
-                            elif c == 'laserbeam':
+                            elif c == 'knife throw':
                                 enemy_health -=knife_throw
                                 if  enemy_health <= 0:
                                     enemy_health= 0
@@ -158,7 +158,7 @@ class battle:
                         c = (input(f"You can choose to heal or choose to attack: ")).lower()
                         if c == 'heal':
                             character += 100
-                            print(f"You've healed 90 HP. You currently have {character} HP. Then {enemy_name} currently have {enemy_health} HP")
+                            print(f"You've healed 100 HP. You currently have {character} HP. Then {enemy_name} currently have {enemy_health} HP")
                         elif c == 'attack':
                             c = (input("Choose between fireball or laserbeam: ")).lower()
                             if  c== 'fireball':
