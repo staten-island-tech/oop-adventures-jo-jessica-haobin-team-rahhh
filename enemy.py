@@ -15,8 +15,8 @@ class ENEMY:
         self.hp = hp
     def attack(self, dice_1, dice_2, user, enemy_dmg):
         if dice_1 + dice_2 <= 6:
-            print(f"The enemy has rolled a {dice_1 + dice_2}. The enemy has it's turn skipped...")
+            print(f"The enemy has rolled a {dice_1} and {dice_2}. The enemy has it's turn skipped...")
         if dice_1 + dice_2 > 6:
-            print(f"The enemy has rolled a {dice_1 + dice_2}. It attacks you.")
+            print(f"The enemy has rolled a {dice_1} and {dice_2}. It attacks you.")
             user.hp -= enemy_dmg
             

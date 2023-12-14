@@ -1,13 +1,10 @@
 import random
-
-
 class User:
-    def __init__(self, name, hp, currency, inventory, type, exp):
+    def __init__(self, name, hp, currency, inventory, exp):
         self.name = name
         self.hp = hp
         self.currency = currency
         self.inventory = inventory
-        self.type = type
         self.exp = exp
     def buy(self, item):
         self.inventory.append(item)
@@ -23,16 +20,18 @@ class User:
         print(f"COINS : {self.currency}")
     def gain_EXP(self, experience_pts):
         self.exp += experience_pts
-        print(f"EXP : {self.exp}")
+        print(f"LEVEL : {self.exp/100}")
+    def lose_EXP(self, experience_pts):
+        self.exp -= experience_pts
+        print(f"LEVEL : {self.exp/100}")
     def gain_healths(self, health):
         self.hp += health
     def attack(self, dice_1, dice_2, enemy, attack_dmg):
         if dice_1 + dice_2 <= 6:
-            print(f"You've rolled a {dice_1 + dice_2}. Your turn has been skipped...")
-            self.attack_dmg = attack_dmg
-            enemy.hp -= self.attack_dmg
+            print(f"You've rolled a {dice_1} and  {dice_2}. You are able to attack the enemy.")
+            enemy.hp -= attack_dmg
         if dice_1 + dice_2 > 6:
-            print(f"You've rolled a {dice_1 + dice_2}. You are able to attack the enemy.")
+            print(f"You've rolled a {dice_1} and {dice_2}. Your turn has been skipped...")
             
             
             

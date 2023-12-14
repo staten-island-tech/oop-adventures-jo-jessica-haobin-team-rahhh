@@ -10,15 +10,17 @@ products = ["Gun", "Sword", "Healing-Potion", "Toy-Goblin"]
 coins = 200
 HEALTH = 100
 exp = 0
-type = input("Would you like to be a warrior or a mage?: ").upper()
 NPC = Merchant("MERCHANT", products)
-Users = User(name, HEALTH, coins, [], type, exp)  
+Users = User(name, HEALTH, coins, [], exp)  
+User_attack_dmg = 30
 d = tut("Mr.Whalen")
 fin_enemy_health = 1000
-g = random.randint(1,6)
-p = random.randint(1,6)
-h = random.randint(1,6)
-o = random.randint(1,6)
+
+
+
+
+
+
 
 #create a function that allows the user to take out items and use it to attack.
 
@@ -78,22 +80,27 @@ def BATTLE():
      enemy = ENEMY(enemy_name, enemyhealth)
 
      auhadsuai = input(f"YOU'VE ENCOUNTERED A {enemy_name}!")
-     BATTLE_IDK = input("Would you like to attack the enemy? press E to attack: ").upper()
+     BATTLE_IDK = input("Would you like to attack the enemy? press E to attack or L to leave: ").upper()
+     if BATTLE_IDK == "L":
+          print("You have left the battle...")
+          Users.lose_EXP(10)
+          after_tut()
 
+     if BATTLE_IDK == "E" and enemy.hp >0:
+                    g = random.randint(1,6)
+                    h = random.randint(1,6)
+                    o = random.randint(1,6)
+                    p = random.randint(1,6)
+                    dh = Users.attack(g, p, enemy, User_attack_dmg)
+                    print(enemy.hp)
+                    uds = enemy.attack(o, h, Users, enemy_dmg)
+                    print(Users.hp)
+                    BATTLE_IDK = input("Would you like to attack the enemy? press E to attack or L to leave: ").upper()
 
-     while enemy.hp > 0:
-               dh = Users.attack(g, p, enemy, 50)
-               print(enemy.hp)
-               uds = enemy.attack(h, o, Users, 50)
-               print(Users.hp)
-               break
                
           
-               
-          
 
-
-     #put haobins code grah     
+     #i carry the group frsfrs    
 def FINAL_BATTLE():
      if exp >= 100:
           adsiuhd = f"YOU'VE REACHED THE LEVEL TO BEAT ." 

@@ -16,3 +16,14 @@ Audrey = User("Audrey", 100, 50, [], 'water', 500)
 Hao = ENEMY("Hao", 50)
 Audrey.attack(Hao)
 print(Hao.hp)
+
+"""                     for i in range():
+                         used_numbers = []
+                         g = random.randint(1,6)
+                         if g not in used_numbers:
+                              used_numbers.append(g) """
+import random
+
+g = list(range(1,6))
+random.shuffle(g)
+print(g)
