@@ -1,7 +1,7 @@
 class FINAL_ENEMY:
     def __init__(self, name, hp, power):
         self.name = name
-        self.HP = hp
+        self.hp = hp
         self.POWER = power
     def GET_HIT(self, dmg):
         self.HP -= dmg
@@ -13,12 +13,10 @@ class ENEMY:
     def __init__(self, name,  hp):
         self.name = name
         self.hp = hp
-    def fight(self, stab, knife_throw):
-        stab = 100
-        knife_throw = 50
-        def stab():
-            self.hp -= stab
-        def knife_throw():
-            self.hp -= knife_throw
-        def 
+    def attack(self, dice_1, dice_2, user, enemy_dmg):
+        if dice_1 + dice_2 <= 6:
+            print(f"The enemy has rolled a {dice_1 + dice_2}. The enemy has it's turn skipped...")
+        if dice_1 + dice_2 > 6:
+            print(f"The enemy has rolled a {dice_1 + dice_2}. It attacks you.")
+            user.hp -= enemy_dmg
             

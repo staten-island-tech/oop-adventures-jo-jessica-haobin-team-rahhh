@@ -1,8 +1,10 @@
 import random
+
+
 class User:
     def __init__(self, name, hp, currency, inventory, type, exp):
         self.name = name
-        self.HP = hp
+        self.hp = hp
         self.currency = currency
         self.inventory = inventory
         self.type = type
@@ -19,21 +21,21 @@ class User:
     def add_currency(self, coins):
         self.currency += coins
         print(f"COINS : {self.currency}")
-    def GET_ATTACKED(self, dmg):
-        self.HP -= dmg
-        print(f"HP : {self.HP}")
     def gain_EXP(self, experience_pts):
         self.exp += experience_pts
         print(f"EXP : {self.exp}")
-    def fight(self, dmg):
-        self.HP -= dmg
-    def rolling_da_dices():
-        a = random.randint(1,6)
-        g = random.randint(1,6)
-        if a + g > 6:
-            print(f"You've rolled a {a+g} so you can attack the enemy.")
-        if a + g < 6:
-            print(f"You've rolled a {a+g}, you are not allowed to attack the enemy until the next roll.")
+    def gain_healths(self, health):
+        self.hp += health
+    def attack(self, dice_1, dice_2, enemy, attack_dmg):
+        if dice_1 + dice_2 <= 6:
+            print(f"You've rolled a {dice_1 + dice_2}. Your turn has been skipped...")
+            self.attack_dmg = attack_dmg
+            enemy.hp -= self.attack_dmg
+        if dice_1 + dice_2 > 6:
+            print(f"You've rolled a {dice_1 + dice_2}. You are able to attack the enemy.")
+            
+            
+            
 
 
 

@@ -15,8 +15,14 @@ NPC = Merchant("MERCHANT", products)
 Users = User(name, HEALTH, coins, [], type, exp)  
 d = tut("Mr.Whalen")
 fin_enemy_health = 1000
+g = random.randint(1,6)
+p = random.randint(1,6)
+h = random.randint(1,6)
+o = random.randint(1,6)
 
-d.tutorial()
+#create a function that allows the user to take out items and use it to attack.
+
+""" d.tutorial()  """
 def after_tut():
      fjji = input("Where would you like to go? SHOP/BATTLE(Attack other enemies)/FINAL BATTLE: ").upper()
      if fjji == "SHOP":
@@ -55,22 +61,36 @@ def BATTLE():
      if type == 1:
           enemy_name = "Dragon"
           enemyhealth = 100 
+          enemy_dmg = 27
      if type == 2:
           enemy_name = "Zombie"
           enemyhealth = 200
+          enemy_dmg = 32
      if type == 3:
           enemy_name = "Skeletion"
           enemyhealth = 250
+          enemy_dmg = 38
      if type == 4:
-          enemy_name = "dad"
+          enemy_name = "dsauidiu"
           enemyhealth = 400
+          enemy_dmg = 41
 
      enemy = ENEMY(enemy_name, enemyhealth)
 
      auhadsuai = input(f"YOU'VE ENCOUNTERED A {enemy_name}!")
      BATTLE_IDK = input("Would you like to attack the enemy? press E to attack: ").upper()
-     if BATTLE_IDK == "E":
-          User.rolling_da_dices()
+
+
+     while enemy.hp > 0:
+               dh = Users.attack(g, p, enemy, 50)
+               print(enemy.hp)
+               uds = enemy.attack(h, o, Users, 50)
+               print(Users.hp)
+               break
+               
+          
+               
+          
 
 
      #put haobins code grah     
@@ -82,4 +102,4 @@ def FINAL_BATTLE():
           print("returning to main screen...")
           after_tut()
 
-after_tut()    
+BATTLE()
