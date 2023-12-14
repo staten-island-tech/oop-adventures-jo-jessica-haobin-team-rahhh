@@ -1,47 +1,14 @@
 class user():
-    def __init__(self, name:str, health:int, types:str):
+    def __init__(self, name:str, health:int, types:str, weapon:str, skills:str):
         self.name = name
         self.health = health
         self.types =  types
+        self.weapon = weapon
+        self.skills = skills
         #health = 100
 #this is a substitute for josephine's code
 
-class warrior(user):
-    def __init__(self, name:str, health:int, types:str, warrior_weapon:str, warrior_skills:str):
-        super().__init__(name, health, types)
-        self.warrior_skills = warrior_skills
-        self.weapon = warrior_weapon
-        print("Name:",name,"Health:",health, "Types:" ,types, "Weapon:" ,warrior_weapon, "Warrior Skills" ,warrior_skills,)
-        #warrior_skills are stab, throw knife, and punch
-    def __str__(self) :
-        return f"{self.name}, {self.health}, {self.types}, {self.weapon} {self.warrior_skills}"
-
-class mage(user):
-    def __init__(self, name:str, health:int, types:str, mage_weapon:str, mage_skills:str):
-        super().__init__(health, name, types)
-        self.mage_skills = mage_skills
-        self.weapon = mage_weapon
-        print("Name:" ,name, "Health:" ,health, "Types:" ,types, "Weapon:" ,mage_weapon, "Skills:" ,mage_skills,)
-        #mage_skills are fireball, lazerbeam, heal, and punch
-    def __str__(self):
-        return f"{self.name}, {self.health}, {self.types}, {self.weapon}, {self.mage_skills}"
-    
-class type(mage, warrior):
-    def __init__(self):
-        super(type, self).__init__(self, warrior_weapon, mage_weapon)
-        type = input("Would you like to be a warrior or mage?")
-        if type == "warrior":
-            warrior_weapon.lower() == "knife"
-            warrior.warrior_skills.lower() == ["stab", "knife throw", "punch"]
-            user("bla", "bla", "bla") == warrior("bla", "bla", "bla")
-        if type == "mage":
-            mage_weapon.lower() == "staff"
-            mage.mage_skills.lower() == ["fireball", "lazarbeam", "heal", "punch"]
-            user("bla", "bla", "bla") == mage("bla", "bla", "bla")
-    #this is a substitute for josephine's code
-#HOW DO I MAKE THIS WORKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
-#the problem is that warrior_weapon is in init
-class stuff_you_can_do():
+class stuff_you_can_do(user):
     def start_fight():
         x = input("Would you like to attack/buff, give up, or equip/unequip?")
         if x.lower() == "attack/buff":
@@ -50,34 +17,7 @@ class stuff_you_can_do():
             stuff_you_can_do.give_up()
         if x.lower() == "equip/unequip":
             stuff_you_can_do.equip_or_unequip()
-            
-    def attack_or_buff():
-        #type is part of josephine's code
-        if type == "warrior" and warrior.weapon.lower() == "knife":
-            x = input("Would you like to use stab, knife throw, equip/unequip, or give up?(Buff not available for warriors.)")
-            if x.lower() == "equip/unequip":
-                stuff_you_can_do.equip_or_unequip()
-            if x.lower() == "give up":
-                stuff_you_can_do.give_up()
-        elif type == "mage" and mage.weapon.lower() == "staff":
-            x = input("Would you like to use fireball, lazarbeam, punch, heal, equip/unequip, or give up?")
-            if x.lower() == "equip/unequip":
-                stuff_you_can_do.equip_or_unequip()
-            if x.lower() == "give up":
-                stuff_you_can_do.give_up()
-        elif type == "warrior" and warrior.weapon.lower() == "fist":
-            x = input("Would you like to use punch, give up, or equip/unequip?")
-            if x.lower() == "equip/unequip":
-                stuff_you_can_do.equip_or_unequip()
-            if x.lower() == "give up":
-                stuff_you_can_do.give_up()
-        elif type == "mage" and mage.weapon.lower() == "fist":
-            x = input("Would you like to use punch, give up, or equip/unequip?")
-            if x.lower() == "equip/unequip":
-                stuff_you_can_do.equip_or_unequip()
-            if x.lower() == "give up":
-                stuff_you_can_do.give_up()
-
+    
     def give_up():
         x = input("Are you sure?: Yes or No")
         if x.lower() == "yes":
@@ -89,14 +29,42 @@ class stuff_you_can_do():
             if x.lower() == "give up":
                 stuff_you_can_do.give_up()
 
-    def equip_or_unequip():
-        x = input("Would you like to equip or unequip?")
-        if x.lower() == "equip":
-            warrior.weapon.lower() == "knife"
-            mage.weapon.lower() == "staff"
-        if x.lower() == "unequip":
-            warrior.weapon.lower() == "fist"
-            mage.weapon.lower() == "fist"
+    def __init__(self, weapon):
+        super().__init__(weapon)
+        def attack_or_buff():
+            if weapon.lower == "knife":
+                x = input("Would you like to use stab, knife throw, equip/unequip, or give up?(Buff not available for warriors.)")
+                if x.lower() == "equip/unequip":
+                    stuff_you_can_do.equip_or_unequip()
+                if x.lower() == "give up":
+                    stuff_you_can_do.give_up()
+            elif weapon.lower == "staff":
+                x = input("Would you like to use fireball, lazarbeam, punch, heal, equip/unequip, or give up?")
+                if x.lower() == "equip/unequip":
+                    stuff_you_can_do.equip_or_unequip()
+                if x.lower() == "give up":
+                    stuff_you_can_do.give_up()
+            elif weapon.lower == "fist":
+                x = input("Would you like to use punch, give up, or equip/unequip?")
+                if x.lower() == "equip/unequip":
+                    stuff_you_can_do.equip_or_unequip()
+                if x.lower() == "give up":
+                    stuff_you_can_do.give_up()
+            elif weapon.lower == "fist":
+                x = input("Would you like to use punch, give up, or equip/unequip?")
+                if x.lower() == "equip/unequip":
+                    stuff_you_can_do.equip_or_unequip()
+                if x.lower() == "give up":
+                    stuff_you_can_do.give_up()
+
+        def equip_or_unequip():
+            x = input("Would you like to equip or unequip?")
+            if x.lower() == "equip":
+                weapon.lower() == "knife"
+                weapon.lower() == "staff"
+            if x.lower() == "unequip":
+                weapon.lower() == "fist"
+                weapon.lower() == "fist"
 
     
     
