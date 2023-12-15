@@ -1,4 +1,4 @@
 import random
 
-oogaboogacavemenfirebangstoneweaponstab = ['dragon', 'dog', 'balls', 'dinner', 'steve']
-print(random.choice(oogaboogacavemenfirebangstoneweaponstab))
+x,y,z = 10,20,30
+

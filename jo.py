@@ -235,6 +235,8 @@ def mage_fight(mage, enemy):
                     input('Press any button to continue: ')
 
 
+
+
 def fight(enemy, warrior, mage):
     global b 
     global enemy_health, enemy_attack, enemy_name
@@ -250,7 +252,3 @@ def fight(enemy, warrior, mage):
         mage_fight(mage, enemy)
 
 fight(enemy,warrior,mage)
-
-
-
-
