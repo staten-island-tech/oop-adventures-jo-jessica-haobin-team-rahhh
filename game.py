@@ -7,6 +7,7 @@ from tutorial import tut
 #WORLD STUFF YAH YAH
 name = input("Please insert your name: ").title()
 products = ["Gun", "Sword", "Healing-Potion", "Toy-Goblin"]
+#LATER CREATE A CLASS THAT ALLOWS YOU TO ADD ATTACK DMG BY A CERTAIN AMOUNT IF YOU DO
 coins = 200
 HEALTH = 100
 exp = 0
@@ -15,6 +16,7 @@ Users = User(name, HEALTH, coins, [], exp)
 User_attack_dmg = 30
 d = tut("Mr.Whalen")
 fin_enemy_health = 1000
+
 
 
 
@@ -56,37 +58,32 @@ def SHOP():
      if Welcoming_to_SHOP == "LEAVE":
           print("Thank you for coming...")
           after_tut()
+def inventory():
+     print(f"INVENTORY: ")
+
 def BATTLE():
      Welcoming_to_BATTLE = input("You've entered the battle... press enter to continue..")
      type = random.randint(1,4)
      
      if type == 1:
-          enemy_name = "Dragon"
-          enemyhealth = 100 
-          enemy_dmg = 27
+          enemy_name, enemyhealth,enemy_dmg = "Dragon", 100, 27
      if type == 2:
-          enemy_name = "Zombie"
-          enemyhealth = 200
-          enemy_dmg = 32
+          enemy_name, enemyhealth, enemy_dmg = "Zombie", 200, 32
      if type == 3:
-          enemy_name = "Skeletion"
-          enemyhealth = 250
-          enemy_dmg = 38
+          enemy_name, enemyhealth, enemy_dmg = "Skeletion", 250, 38
      if type == 4:
-          enemy_name = "dsauidiu"
-          enemyhealth = 400
-          enemy_dmg = 41
+          enemy_name, enemyhealth, enemy_dmg = "dsauidiu", 400, 41
+
 
      enemy = ENEMY(enemy_name, enemyhealth)
 
      auhadsuai = input(f"YOU'VE ENCOUNTERED A {enemy_name}!")
-     BATTLE_IDK = input("Would you like to attack the enemy? press E to attack or L to leave: ").upper()
-     if BATTLE_IDK == "L":
-          print("You have left the battle...")
-          Users.lose_EXP(10)
-          after_tut()
 
-     if BATTLE_IDK == "E" and enemy.hp >0:
+
+
+     while enemy.hp >0 and Users.hp >0:
+          BATTLE_IDK = input("Would you like to attack the enemy? press E to attack or L to leave: ").upper()
+          if BATTLE_IDK == "E":
                     g = random.randint(1,6)
                     h = random.randint(1,6)
                     o = random.randint(1,6)
@@ -95,7 +92,10 @@ def BATTLE():
                     print(enemy.hp)
                     uds = enemy.attack(o, h, Users, enemy_dmg)
                     print(Users.hp)
-                    BATTLE_IDK = input("Would you like to attack the enemy? press E to attack or L to leave: ").upper()
+          if BATTLE_IDK == "L":
+               print("You have left the battle...")
+               Users.lose_EXP(10)
+               after_tut()
 
                
           
@@ -103,7 +103,7 @@ def BATTLE():
      #i carry the group frsfrs    
 def FINAL_BATTLE():
      if exp >= 100:
-          adsiuhd = f"YOU'VE REACHED THE LEVEL TO BEAT ." 
+          adsiuhd = f"YOU'VE REACHED THE LEVEL TO BEAT THE FINAL BOSS..." 
      if exp < 100:
           print("You are not high enough level.")
           print("returning to main screen...")
