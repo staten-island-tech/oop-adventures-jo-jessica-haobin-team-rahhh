@@ -9,7 +9,7 @@ class user():
 #this is a substitute for josephine's code
 
 class stuff_you_can_do(user):
-    def start_fight():
+    def start_fight(self):
         x = input("Would you like to attack/buff, give up, or equip/unequip?")
         if x.lower() == "attack/buff":
             stuff_you_can_do.attack_or_buff()
@@ -18,52 +18,49 @@ class stuff_you_can_do(user):
         if x.lower() == "equip/unequip":
             stuff_you_can_do.equip_or_unequip()
     
-    def give_up():
+    def give_up(self):
         x = input("Are you sure?: Yes or No")
         if x.lower() == "yes":
             print("You lose.")
         if x.lower() == "no":
             x = input("Would you like to attack/buff, give up, or equip/unequip?")
+            if x.lower() == "attack/buff":
+                stuff_you_can_do.attack_or_buff()
             if x.lower() == "equip/unequip":
                 stuff_you_can_do.equip_or_unequip()
             if x.lower() == "give up":
                 stuff_you_can_do.give_up()
 
-    def __init__(self, weapon):
-        super().__init__(weapon)
-        def attack_or_buff():
-            if weapon.lower == "knife":
-                x = input("Would you like to use stab, knife throw, equip/unequip, or give up?(Buff not available for warriors.)")
-                if x.lower() == "equip/unequip":
-                    stuff_you_can_do.equip_or_unequip()
-                if x.lower() == "give up":
-                    stuff_you_can_do.give_up()
-            elif weapon.lower == "staff":
-                x = input("Would you like to use fireball, lazarbeam, punch, heal, equip/unequip, or give up?")
-                if x.lower() == "equip/unequip":
-                    stuff_you_can_do.equip_or_unequip()
-                if x.lower() == "give up":
-                    stuff_you_can_do.give_up()
-            elif weapon.lower == "fist":
-                x = input("Would you like to use punch, give up, or equip/unequip?")
-                if x.lower() == "equip/unequip":
-                    stuff_you_can_do.equip_or_unequip()
-                if x.lower() == "give up":
-                    stuff_you_can_do.give_up()
-            elif weapon.lower == "fist":
-                x = input("Would you like to use punch, give up, or equip/unequip?")
-                if x.lower() == "equip/unequip":
-                    stuff_you_can_do.equip_or_unequip()
-                if x.lower() == "give up":
-                    stuff_you_can_do.give_up()
+
+    def attack_or_buff():
+        if weapon.lower == "knife":
+            x = input("Would you like to use stab, knife throw, equip/unequip, or give up?(Buff not available for warriors.)")
+            if x.lower() == "equip/unequip":
+                stuff_you_can_do.equip_or_unequip()
+            if x.lower() == "give up":
+                stuff_you_can_do.give_up()
+        elif weapon.lower == "staff":
+            x = input("Would you like to use fireball, lazarbeam, punch, heal, equip/unequip, or give up?")
+            if x.lower() == "equip/unequip":
+                stuff_you_can_do.equip_or_unequip()
+            if x.lower() == "give up":
+                stuff_you_can_do.give_up()
+        elif weapon.lower == "fist":
+            x = input("Would you like to use punch, give up, or equip/unequip?")
+            if x.lower() == "equip/unequip":
+                stuff_you_can_do.equip_or_unequip()
+            if x.lower() == "give up":
+                stuff_you_can_do.give_up()
 
         def equip_or_unequip():
             x = input("Would you like to equip or unequip?")
             if x.lower() == "equip":
-                weapon.lower() == "knife"
-                weapon.lower() == "staff"
+                y = input("Would you like to use the knife or the staff?")
+                if y.lower() == "knife":
+                    weapon.lower() == "knife"
+                if y.lower() == "staff":
+                    weapon.lower() == "knife"
             if x.lower() == "unequip":
-                weapon.lower() == "fist"
                 weapon.lower() == "fist"
 
     
