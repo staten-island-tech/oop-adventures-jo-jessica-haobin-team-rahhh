@@ -1,0 +1,32 @@
+[
+    {
+        "Name": "Dragon",
+        "Health": 300,
+        "Damage": 50,
+        "Exp": 40
+    },
+    {
+        "Name": "Goblin",
+        "Health": 70,
+        "Damage": 10,
+        "Exp": 5
+    },
+    {
+        "Name": "Zombie",
+        "Health": 100,
+        "Damage": 30,
+        "Exp": 15
+    },
+    {
+        "Name": "Skeleton",
+        "Health": 90,
+        "Damage": 30,
+        "Exp": 10
+    },
+    {
+        "Name": "Final Boss",
+        "Health": 500,
+        "Damage": 100,
+        "Exp": 300
+    }
+]

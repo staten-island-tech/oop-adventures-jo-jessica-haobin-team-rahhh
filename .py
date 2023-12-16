@@ -12,7 +12,7 @@ class enemy():
     
 
 
-with open('something.json', mode='r') as infile:
+with open('data.json', mode='r') as infile:
     data = json.load(infile)
 
 def enemy2():
@@ -33,7 +33,6 @@ def enemy2():
         }
     )
 
-    with open('something.json', mode='w') as outfile:
+    with open('data.json', mode='w') as outfile:
         data = json.dump(data, outfile, indent=4)
     
-enemy2()
