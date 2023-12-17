@@ -36,3 +36,10 @@ def enemy2():
     with open('data.json', mode='w') as outfile:
         data = json.dump(data, outfile, indent=4)
     
+def answer_response(Options: list):
+    Choices = input(f"{'/'.join(Options)}: ").lower()
+    while Choices not in Options:
+        Choices = input(f"{'/'.join(Options)}: ").lower()
+    else:
+        return
+    

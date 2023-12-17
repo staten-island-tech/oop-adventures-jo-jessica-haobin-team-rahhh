@@ -17,12 +17,11 @@ class player:
             mage.health, mage.fireball, mage.laserbeam = 150, 70, 50
     createplayer()
 
-
-
-global b 
+global b
 b = random.randint(1,100)
 
-def spawn_enemy(b):
+def spawn_enemy(b):  
+    b = random.randint(1,100)
     global enemy_attack, enemy_health, enemy_name 
     if b > 90:
         print("A Dragon spawned")
@@ -37,76 +36,84 @@ def spawn_enemy(b):
         print("A Goblin spawned")
         enemy_name, enemy_attack, enemy_health = data[1]['Name'], data[1]['Damage'], data[1]['Health']
 
-def win_or_lose_statements(a, b):
+def statements(a, b):
     print(a)
     print(b)
 def continuation_statements(a, b):
     print(a)
     input(b)
-
+def answer_response(Options: list):
+    global Choices
+    Choices = input(f"{'|'.join(Options)}: ").lower()
+    while Choices not in Options:
+        Choices = input(f"{'|'.join(Options)}: ").lower()
+    else:
+        return
 def warrior_fight(warrior, enemy):
     global b 
     global enemy_health, enemy_attack, enemy_name
 
-    i = 1
     character, stab, knife_throw = warrior.health, warrior.stab, warrior.knife_throw
     while True:
-        i += 1
+        i = 1
         for i in range(i):
+            i += 1
             os.system('cls')
             a, g = random.randint(1,6), random.randint(1,6)
             if a + g > 6: 
                 print(f"You've rolled a {a+g} so you can attack.")
-                e = (input("Choose between stab or knife throw: ")).lower()
-                if e == 'stab':
+                print('Choose between the following attacks')
+                answer_response(['stab','knife throw'])
+                if Choices == 'stab':
                     os.system('cls')
                     enemy_health -=stab
                     if  enemy_health <= 0: 
                         enemy_health = 0
-                        win_or_lose_statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win')
+                        statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win')
                         return
                     else: 
                         os.system('cls')
                         continuation_statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: ')
-                elif e == 'knife throw':
+                elif Choices == 'knife throw':
                     os.system('cls')
                     enemy_health -=knife_throw
                     if enemy_health <= 0:
                         enemy_health = 0
                         os.system('cls')
-                        win_or_lose_statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win')
+                        statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win')
                         return
                     else: 
                         os.system('cls')
                         continuation_statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: ')
                             
             elif a + g == 6:
-                print(f"You've rolled a {a+g}")
-                c = (input(f"You can choose to heal or choose to attack: ")).lower()
-                if c == 'heal':
+                statements(f"You've rolled a {a+g} so you can choose to heal instead of attack", 'Choose between the following')
+                answer_response(['heal', 'attack'])
+                if Choices == 'heal':
                     os.system('cls')
                     character += 100
-                    continuation_statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: ')
-                elif c == 'attack':
+                    continuation_statements(f"You've healed 100 hp. You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: ')
+                elif Choices == 'attack':
                     os.system('cls')
-                    c = (input("Choose between stab or knife throw: ")).lower()
-                    if  c == 'stab':
+                    print('Choose between the following')
+                    answer_response(['stab', 'knife throw'])
+                    if  Choices == 'stab':
                         enemy_health -=stab
                         if  enemy_health <= 0:
                             enemy_health = 0
                             os.system('cls')
-                            win_or_lose_statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win')
+                            statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win')
                             return
                         else: 
                             os.system('cls')
                             continuation_statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: ')
-                    elif c == 'knife throw':
+                    elif Choices == 'knife throw':
                         os.system('cls')
                         enemy_health -=knife_throw
                         if  enemy_health <= 0:
                             enemy_health = 0
                             os.system('cls')
-                            win_or_lose_statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win')
+                            statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win')
                             return
                         else: 
                             os.system('cls')
@@ -119,7 +126,7 @@ def warrior_fight(warrior, enemy):
                 if  character <= 0:
                     character = 0
                     os.system('cls')
-                    win_or_lose_statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You lost')
+                    statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You lost')
                     return
                 else: 
                     continuation_statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: ')
@@ -127,33 +134,33 @@ def warrior_fight(warrior, enemy):
 def mage_fight(mage, enemy):
     global b
     global enemy_health, enemy_attack, enemy_name
-    i = 1
     character, fireball, laserbeam = mage.health, mage.fireball, mage.laserbeam
     while True:
-        i += 1
+        i = 1
         for i in range(i):
+            i += 1
             os.system('cls')
             a, g = random.randint(1,6), random.randint(1,6)
             if a + g > 7:
-                print(f"You've rolled a {a+g} so you can attack.")
-                e = (input("Choose between fireball or laserbeam: ")).lower()
-                if e == 'fireball':
+                statements(f"You've rolled a {a+g} so you can attack.", 'Choose between the following attacks')
+                answer_response(['fireball', 'laserbeam'])
+                if Choices == 'fireball':
                     os.system('cls')
                     enemy_health -=fireball
                     if  enemy_health <= 0:
                         os.system('cls')
                         enemy_health= 0
-                        win_or_lose_statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win')
+                        statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win')
                         return
                     else: 
                         continuation_statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: ')
-                elif e == 'laserbeam':
+                elif Choices == 'laserbeam':
                     os.system('cls')
                     enemy_health -=laserbeam
                     if  enemy_health <= 0:
                         os.system('cls')
                         enemy_health = 0
-                        win_or_lose_statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win')
+                        statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win')
                         return
                     else: 
                         os.system('cls')
@@ -162,34 +169,34 @@ def mage_fight(mage, enemy):
                         
             elif a + g == 7:
                 os.system('cls')
-                print(f"You've rolled a {a+g}")
-                c = (input(f"You can choose to heal or choose to attack: ")).lower()
-                if c == 'heal':
+                statements(f"You've rolled a {a+g} so you can choose to heal instead of attack", 'Choose between the following')
+                answer_response(['heal', 'attack'])
+                if Choices == 'heal':
                     os.system('cls')
                     character += 100
                     print(f"You've healed 100 HP. You currently have {character} HP. Then {enemy_name} currently have {enemy_health} HP")
                     input('Press any button to continue: ')
-                elif c == 'attack':
+                elif Choices == 'attack':
                     os.system('cls')
-                    c = (input("Choose between fireball or laserbeam: ")).lower()
-                    if  c == 'fireball':
+                    answer_response(['fireball', 'laserbeam'])
+                    if  Choices == 'fireball':
                         os.system('cls')
                         enemy_health -=fireball
                         if  enemy_health <= 0:
                             os.system('cls')
                             enemy_health = 0
-                            win_or_lose_statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win')
+                            statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win')
                             return
                         else: 
                             os.system('cls')
                             continuation_statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: ')
 
-                    elif c == 'laserbeam':
+                    elif Choices == 'laserbeam':
                         enemy_health -=laserbeam
                         if  enemy_health <= 0:
                             enemy_health = 0
                             os.system('cls')
-                            win_or_lose_statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win')
+                            statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win')
                             return
                         else: 
                             os.system('cls')
@@ -202,7 +209,7 @@ def mage_fight(mage, enemy):
                 if character <= 0:
                     character = 0
                     os.system('cls')
-                    win_or_lose_statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You lost')
+                    statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You lost')
                     return
                 else: 
                     continuation_statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: ')
