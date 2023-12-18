@@ -18,13 +18,6 @@ User_attack_dmg = 30
 d = tut("Mr.Whalen")
 fin_enemy_health = 1000
 
-
-
-
-
-
-
-
 #create a function that allows the user to take out items and use it to attack.
 
 d.tutorial()  
@@ -39,7 +32,6 @@ def after_tut():
           FINAL_BATTLE()
      if fjji == "INVENTORY":
           inventory()
-     
 
 def SHOP():
      os.system('cls')
@@ -105,9 +97,6 @@ def BATTLE():
                print("You have left the battle...")
                Users.lose_EXP(10)
                after_tut()
-
-               
-          
 
      #i carry the group frsfrs    
 def FINAL_BATTLE():
