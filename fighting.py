@@ -15,7 +15,7 @@ class player:
             warrior.health, warrior.stab, warrior.knife_throw = 100, 30, 10
         elif h == "mage":
             mage.health, mage.fireball, mage.laserbeam = 150, 70, 50
-    createplayer()
+    
 
 global b
 b = random.randint(1,100)
@@ -36,19 +36,29 @@ def spawn_enemy(b):
         print("A Goblin spawned")
         enemy_name, enemy_attack, enemy_health = data[1]['Name'], data[1]['Damage'], data[1]['Health']
 
-def statements(a, b):
-    print(a)
-    print(b)
-def continuation_statements(a, b):
-    print(a)
-    input(b)
-def answer_response(Options: list):
+
+def answer_response(Statements: list, Options: list):
     global Choices
-    Choices = input(f"{'|'.join(Options)}: ").lower()
-    while Choices not in Options:
-        Choices = input(f"{'|'.join(Options)}: ").lower()
+    while Statements[0] != '':
+        for i in range(0, len(Statements)):
+            print(Statements[i])
+            return
     else:
-        return
+        while Options[0] != '': 
+            if len(Options) == 1:
+                input(Options)
+                return
+            else:
+                Choices = input(f"{'|'.join(Options)}: ").lower()
+                while Choices not in Options:
+                    Choices = input(f"{'|'.join(Options)}: ").lower()
+                else:
+                    return
+        else: 
+            return
+        
+answer_response(['hello', 'sdoifeiwo'], ['eoioijfoij'])
+    
 def warrior_fight(warrior, enemy):
     global b 
     global enemy_health, enemy_attack, enemy_name
@@ -61,38 +71,37 @@ def warrior_fight(warrior, enemy):
             os.system('cls')
             a, g = random.randint(1,6), random.randint(1,6)
             if a + g > 6: 
-                print(f"You've rolled a {a+g} so you can attack.")
-                print('Choose between the following attacks')
-                answer_response(['stab','knife throw'])
+                answer_response([f"You've rolled a {a+g} so you can attack"], ['Choose between the following attacks',])
+                answer_response([''], ['stab','knife throw'])
                 if Choices == 'stab':
                     os.system('cls')
                     enemy_health -=stab
                     if  enemy_health <= 0: 
                         enemy_health = 0
-                        statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win')
+                        answer_response([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'], [''])
                         return
                     else: 
                         os.system('cls')
-                        continuation_statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: ')
+                        answer_response([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP."], ['Press any button to continue: '])
                 elif Choices == 'knife throw':
                     os.system('cls')
                     enemy_health -=knife_throw
                     if enemy_health <= 0:
                         enemy_health = 0
                         os.system('cls')
-                        statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win')
+                        answer_response([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'], [''])
                         return
                     else: 
                         os.system('cls')
-                        continuation_statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: ')
+                        answer_response([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP."], ['Press any button to continue: '])
                             
             elif a + g == 6:
-                statements(f"You've rolled a {a+g} so you can choose to heal instead of attack", 'Choose between the following')
-                answer_response(['heal', 'attack'])
+                answer_response([f"You've rolled a {a+g} so you can choose to heal instead of attack"], ['Choose between the following'])
+                answer_response([''], ['heal', 'attack'])
                 if Choices == 'heal':
                     os.system('cls')
                     character += 100
-                    continuation_statements(f"You've healed 100 hp. You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: ')
+                    answer_response([f"You've healed 100 hp. You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP."], ['Press any button to continue: '])
                 elif Choices == 'attack':
                     os.system('cls')
                     print('Choose between the following')
@@ -102,22 +111,22 @@ def warrior_fight(warrior, enemy):
                         if  enemy_health <= 0:
                             enemy_health = 0
                             os.system('cls')
-                            statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win')
+                            answer_response([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'], [''])
                             return
                         else: 
                             os.system('cls')
-                            continuation_statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: ')
+                            answer_response([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP."], ['Press any button to continue: '])
                     elif Choices == 'knife throw':
                         os.system('cls')
                         enemy_health -=knife_throw
                         if  enemy_health <= 0:
                             enemy_health = 0
                             os.system('cls')
-                            statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win')
+                            answer_response([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'], [''])
                             return
                         else: 
                             os.system('cls')
-                            continuation_statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: ')
+                            answer_response([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP."], ['Press any button to continue: '])
 
             elif a + g < 6:
                 os.system('cls')
@@ -126,10 +135,10 @@ def warrior_fight(warrior, enemy):
                 if  character <= 0:
                     character = 0
                     os.system('cls')
-                    statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You lost')
+                    answer_response([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You lost'], [''])
                     return
                 else: 
-                    continuation_statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: ')
+                    answer_response([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP."], ['Press any button to continue: '])
 
 def mage_fight(mage, enemy):
     global b
@@ -228,7 +237,9 @@ def fight(enemy, warrior, mage):
     elif h == "mage":
         mage_fight(mage, enemy)
 
-fight(enemy,warrior,mage)
+
+
+
 
 
 
