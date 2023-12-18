@@ -1,8 +1,9 @@
 from merchant import Merchant
 from user import User
 from enemy import ENEMY
-import random
+import random, os
 from tutorial import tut
+os.system('cls')
 
 #WORLD STUFF YAH YAH
 name = input("Please insert your name: ").title()
@@ -26,16 +27,22 @@ fin_enemy_health = 1000
 
 #create a function that allows the user to take out items and use it to attack.
 
-""" d.tutorial()  """
+d.tutorial()  
 def after_tut():
-     fjji = input("Where would you like to go? SHOP/BATTLE(Attack other enemies)/FINAL BATTLE: ").upper()
+     os.system('cls')
+     fjji = input("Where would you like to go? SHOP/INVENTORY/BATTLE(Attack other enemies)/FINAL BATTLE: ").upper()
      if fjji == "SHOP":
           SHOP()
      if fjji == "BATTLE":
           BATTLE()
      if fjji == "FINAL BATTLE":
           FINAL_BATTLE()
+     if fjji == "INVENTORY":
+          inventory()
+     
+
 def SHOP():
+     os.system('cls')
      Welcoming_to_SHOP = input("Welcome to the SHOP! Would you like to sell items or buy them? BUY/SELL/LEAVE: ").upper()
 
      if Welcoming_to_SHOP == "BUY":
@@ -48,6 +55,7 @@ def SHOP():
           sdh = Users.remove_currency(100)
           print("Thank you for shopping...")
           after_tut()
+          os.system('cls')
      if Welcoming_to_SHOP == "SELL":
           sell = input("What item would you like to sell?: ").title()
           ahs = NPC.buy(sell)
@@ -55,12 +63,13 @@ def SHOP():
           dhsk = Users.add_currency(100)
           print("Thank you for shopping...")
           after_tut()
+          os.system('cls')
      if Welcoming_to_SHOP == "LEAVE":
           print("Thank you for coming...")
           after_tut()
 def inventory():
-     print(f"INVENTORY: ")
-
+     disdjao = input(f"INVENTORY: {Users.inventory} ")
+     after_tut()
 def BATTLE():
      Welcoming_to_BATTLE = input("You've entered the battle... press enter to continue..")
      type = random.randint(1,4)
@@ -105,8 +114,8 @@ def FINAL_BATTLE():
      if exp >= 100:
           adsiuhd = f"YOU'VE REACHED THE LEVEL TO BEAT THE FINAL BOSS..." 
      if exp < 100:
-          print("You are not high enough level.")
-          print("returning to main screen...")
+          dh = input("You are not high enough level.")
+          fhid = input("returning to main screen...")
           after_tut()
 
-BATTLE()
+after_tut()
