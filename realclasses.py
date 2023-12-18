@@ -8,8 +8,10 @@ class user():
         #health = 100
 #this is a substitute for josephine's code
 
-class stuff_you_can_do(user):
-    def start_fight(self):
+weapon = "fist"
+
+class stuff_you_can_do():
+    def start_fight():
         x = input("Would you like to attack/buff, give up, or equip/unequip?")
         if x.lower() == "attack/buff":
             stuff_you_can_do.attack_or_buff()
@@ -18,7 +20,7 @@ class stuff_you_can_do(user):
         if x.lower() == "equip/unequip":
             stuff_you_can_do.equip_or_unequip()
     
-    def give_up(self):
+    def give_up():
         x = input("Are you sure?: Yes or No")
         if x.lower() == "yes":
             print("You lose.")
@@ -31,38 +33,44 @@ class stuff_you_can_do(user):
             if x.lower() == "give up":
                 stuff_you_can_do.give_up()
 
-
     def attack_or_buff():
-        if weapon.lower == "knife":
+        if weapon.lower() == "knife":
             x = input("Would you like to use stab, knife throw, equip/unequip, or give up?(Buff not available for warriors.)")
             if x.lower() == "equip/unequip":
                 stuff_you_can_do.equip_or_unequip()
             if x.lower() == "give up":
                 stuff_you_can_do.give_up()
-        elif weapon.lower == "staff":
+        elif weapon.lower() == "staff":
             x = input("Would you like to use fireball, lazarbeam, punch, heal, equip/unequip, or give up?")
             if x.lower() == "equip/unequip":
                 stuff_you_can_do.equip_or_unequip()
             if x.lower() == "give up":
                 stuff_you_can_do.give_up()
-        elif weapon.lower == "fist":
+        elif weapon.lower() == "fist":
             x = input("Would you like to use punch, give up, or equip/unequip?")
             if x.lower() == "equip/unequip":
                 stuff_you_can_do.equip_or_unequip()
             if x.lower() == "give up":
                 stuff_you_can_do.give_up()
+                #haobin already did this
 
-        def equip_or_unequip():
-            x = input("Would you like to equip or unequip?")
-            if x.lower() == "equip":
-                y = input("Would you like to use the knife or the staff?")
-                if y.lower() == "knife":
-                    weapon.lower() == "knife"
-                if y.lower() == "staff":
-                    weapon.lower() == "knife"
-            if x.lower() == "unequip":
-                weapon.lower() == "fist"
-
+    def equip_or_unequip():
+        x = input("Would you like to equip or unequip?")
+        if x.lower() == "equip":
+            y = input("Would you like to use the knife or the staff?")
+            if y.lower() == "knife":
+                weapon.lower() == "knife"
+            if y.lower() == "staff":
+                weapon == "staff"
+        if x.lower() == "unequip":
+            weapon.lower() == "fist"
+        z = input("Would you like to attack/buff, give up, or equip/unequip?")
+        if z.lower() == "attack/buff":
+            stuff_you_can_do.attack_or_buff()
+        if z.lower() == "equip/unequip":
+            stuff_you_can_do.equip_or_unequip()
+        if z.lower() == "give up":
+            stuff_you_can_do.give_up()
     
     
     
