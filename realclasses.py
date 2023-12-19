@@ -29,8 +29,7 @@ class stuff_you_can_do():
             if x.lower() == "give up":
                 stuff_you_can_do.give_up()
 
-    def equip_or_unequip(user):
-        
+    def equip_or_unequip():
         x = input("Would you like to equip or unequip?")
         if x.lower() == "equip":
             y = input("Would you like to use the knife or the staff?")
