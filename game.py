@@ -32,7 +32,6 @@ def after_tut():
           FINAL_BATTLE()
      if fjji == "INVENTORY":
           inventory()
-
 def SHOP():
      os.system('cls')
      Welcoming_to_SHOP = input("Welcome to the SHOP! Would you like to sell items or buy them? BUY/SELL/LEAVE: ").upper()
@@ -108,3 +107,4 @@ def FINAL_BATTLE():
           after_tut()
 
 after_tut()
+
