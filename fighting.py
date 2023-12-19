@@ -15,7 +15,7 @@ class player:
             warrior.health, warrior.stab, warrior.knife_throw = 100, 30, 10
         elif h == "mage":
             mage.health, mage.fireball, mage.laserbeam = 150, 70, 50
-    
+    createplayer()
 
 global b
 b = random.randint(1,100)
@@ -36,31 +36,18 @@ def spawn_enemy(b):
         print("A Goblin spawned")
         enemy_name, enemy_attack, enemy_health = data[1]['Name'], data[1]['Damage'], data[1]['Health']
 
-
-def answer_response(Statements: list, Options: list):
-    global Choices
-    while Statements[0] != '':
-        for i in range(0, len(Statements)):
-            print(Statements[i])
-            return
-    else:
-        while Options[0] != '': 
-            if len(Options) == 1:
-                input(Options)
-                return
-            else:
-                Choices = input(f"{'|'.join(Options)}: ").lower()
-                while Choices not in Options:
-                    Choices = input(f"{'|'.join(Options)}: ").lower()
-                else:
-                    return
-        else: 
-            return
-        
-answer_response(['hello', 'sdoifeiwo'], ['eoioijfoij'])
+def dialogue(Statements = '', Options = ''):    
+    if Statements != '':
+        for Statement in Statements: 
+            print(Statement)
+    if Options != '':
+        Choices = input(f"{'|'.join(Options)}: ").lower()
+        while Choices not in Options:
+            Choices = input(f"{'|'.join(Options)}: ").lower()
+        return Choices
     
 def warrior_fight(warrior, enemy):
-    global b 
+    global b
     global enemy_health, enemy_attack, enemy_name
 
     character, stab, knife_throw = warrior.health, warrior.stab, warrior.knife_throw
@@ -71,62 +58,60 @@ def warrior_fight(warrior, enemy):
             os.system('cls')
             a, g = random.randint(1,6), random.randint(1,6)
             if a + g > 6: 
-                answer_response([f"You've rolled a {a+g} so you can attack"], ['Choose between the following attacks',])
-                answer_response([''], ['stab','knife throw'])
+                Choices = dialogue([f"You've rolled a {a+g} so you can attack", "Choose between the following attacks"], ['stab','knife throw'])
                 if Choices == 'stab':
                     os.system('cls')
                     enemy_health -=stab
                     if  enemy_health <= 0: 
                         enemy_health = 0
-                        answer_response([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'], [''])
+                        dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'], [''])
                         return
                     else: 
                         os.system('cls')
-                        answer_response([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP."], ['Press any button to continue: '])
+                        dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: '], [' '])
                 elif Choices == 'knife throw':
                     os.system('cls')
                     enemy_health -=knife_throw
                     if enemy_health <= 0:
                         enemy_health = 0
                         os.system('cls')
-                        answer_response([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'], [''])
+                        dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'], [''])
                         return
                     else: 
                         os.system('cls')
-                        answer_response([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP."], ['Press any button to continue: '])
+                        dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP."], ['Press any button to continue: '])
                             
             elif a + g == 6:
-                answer_response([f"You've rolled a {a+g} so you can choose to heal instead of attack"], ['Choose between the following'])
-                answer_response([''], ['heal', 'attack'])
+                dialogue([f"You've rolled a {a+g} so you can choose to heal instead of attack", 'Choose between the following' ], ['heal', 'attack'])
                 if Choices == 'heal':
                     os.system('cls')
                     character += 100
-                    answer_response([f"You've healed 100 hp. You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP."], ['Press any button to continue: '])
+                    dialogue([f"You've healed 100 hp. You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP."], ['Press any button to continue: '])
                 elif Choices == 'attack':
                     os.system('cls')
                     print('Choose between the following')
-                    answer_response(['stab', 'knife throw'])
+                    dialogue(['stab', 'knife throw'])
                     if  Choices == 'stab':
                         enemy_health -=stab
                         if  enemy_health <= 0:
                             enemy_health = 0
                             os.system('cls')
-                            answer_response([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'], [''])
+                            dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'], [''])
                             return
                         else: 
                             os.system('cls')
-                            answer_response([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP."], ['Press any button to continue: '])
+                            dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.",'Press any button to continue: '], [' '])
                     elif Choices == 'knife throw':
                         os.system('cls')
                         enemy_health -=knife_throw
                         if  enemy_health <= 0:
                             enemy_health = 0
                             os.system('cls')
-                            answer_response([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'], [''])
+                            dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'], [''])
                             return
                         else: 
                             os.system('cls')
-                            answer_response([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP."], ['Press any button to continue: '])
+                            dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: '], [' '])
 
             elif a + g < 6:
                 os.system('cls')
@@ -135,10 +120,10 @@ def warrior_fight(warrior, enemy):
                 if  character <= 0:
                     character = 0
                     os.system('cls')
-                    answer_response([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You lost'], [''])
+                    dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You lost'], [''])
                     return
                 else: 
-                    answer_response([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP."], ['Press any button to continue: '])
+                    dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.",'Press any button to continue: '], [' '])
 
 def mage_fight(mage, enemy):
     global b
@@ -152,7 +137,7 @@ def mage_fight(mage, enemy):
             a, g = random.randint(1,6), random.randint(1,6)
             if a + g > 7:
                 statements(f"You've rolled a {a+g} so you can attack.", 'Choose between the following attacks')
-                answer_response(['fireball', 'laserbeam'])
+                dialogue(['fireball', 'laserbeam'])
                 if Choices == 'fireball':
                     os.system('cls')
                     enemy_health -=fireball
@@ -179,7 +164,7 @@ def mage_fight(mage, enemy):
             elif a + g == 7:
                 os.system('cls')
                 statements(f"You've rolled a {a+g} so you can choose to heal instead of attack", 'Choose between the following')
-                answer_response(['heal', 'attack'])
+                dialogue(['heal', 'attack'])
                 if Choices == 'heal':
                     os.system('cls')
                     character += 100
@@ -187,7 +172,7 @@ def mage_fight(mage, enemy):
                     input('Press any button to continue: ')
                 elif Choices == 'attack':
                     os.system('cls')
-                    answer_response(['fireball', 'laserbeam'])
+                    dialogue(['fireball', 'laserbeam'])
                     if  Choices == 'fireball':
                         os.system('cls')
                         enemy_health -=fireball
@@ -237,7 +222,7 @@ def fight(enemy, warrior, mage):
     elif h == "mage":
         mage_fight(mage, enemy)
 
-
+fight(enemy, warrior, mage)
 
 
 
