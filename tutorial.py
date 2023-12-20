@@ -11,3 +11,4 @@ class tut:
         dsoh = input("Instructions: To attack, input E. To heal, input H. To engage in the fight, input P. To leave away, input L. To equip your weapon or unequip your weapon, input E. ")
         adsihd = input("Everytime you leave a battle, 10 EXP points will be deducted from you.")
         dsagudsiuhddhaisihadsiuhadsiuhadsiuhads = input("EXP points are used to level up, each level needs 100 EXP points. Once you get to a high enough level, you may fight with the final boss...")
+

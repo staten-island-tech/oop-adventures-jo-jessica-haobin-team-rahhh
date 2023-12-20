@@ -41,25 +41,33 @@ def SHOP():
                print(f'ITEM: {item}, AMOUNT: 100')               
           Buy = input("What item would you like to buy?: ").title()
 
-          sd = NPC.sell(Buy)
-          sad = Users.buy(Buy)
-          sdh = Users.remove_currency(100)
-          print("Thank you for shopping...")
-          after_tut()
-          os.system('cls')
+          if Users.currency > 0:
+               merchant_sells = NPC.sell(Buy)
+               user_buys = Users.buy(Buy)
+               user_remove_buddys_currency_so_he_becomes_Broke_ash = Users.remove_currency(100)
+               return_to_tut = input("Thank you for shopping...")
+               SHOP()
+               os.system('cls')
+          if Users.currency <= 0:
+               no_money_bozo = input("Error... You do not have enough...")
+               return_to_tut = input("returning to main...")
+               SHOP()
      if Welcoming_to_SHOP == "SELL":
-          sell = input("What item would you like to sell?: ").title()
-          ahs = NPC.buy(sell)
-          dhs = Users.sell(sell)
-          dhsk = Users.add_currency(100)
-          print("Thank you for shopping...")
-          after_tut()
+          sell = input("What item would you like to sell? If you would like to leave press L: ").title(), print(Users.inventory)
+          if sell == "L":
+               return_to_tut = input("returning to shop....")
+               SHOP()
+          add_merchant_item = NPC.buy(sell)
+          subtract_users_item = Users.sell(sell)
+          add_money = Users.add_currency(100)
+          return_to_tut = input("Thank you for shopping...")
+          SHOP()
           os.system('cls')
      if Welcoming_to_SHOP == "LEAVE":
           print("Thank you for coming...")
           after_tut()
 def inventory():
-     disdjao = input(f"INVENTORY: {Users.inventory} ")
+     show_inv = input(f"INVENTORY: {Users.inventory} ")
      after_tut()
 def BATTLE():
      Welcoming_to_BATTLE = input("You've entered the battle... press enter to continue..")
@@ -100,11 +108,12 @@ def BATTLE():
      #i carry the group frsfrs    
 def FINAL_BATTLE():
      if exp >= 100:
-          adsiuhd = f"YOU'VE REACHED THE LEVEL TO BEAT THE FINAL BOSS..." 
+          reach_lvl = f"YOU'VE REACHED THE LEVEL TO BEAT THE FINAL BOSS..." 
      if exp < 100:
-          dh = input("You are not high enough level.")
-          fhid = input("returning to main screen...")
+          not_high_enough_lvl = input("You are not high enough level.")
+          returning_main = input("returning to main screen...")
           after_tut()
 
 after_tut()
+
 
