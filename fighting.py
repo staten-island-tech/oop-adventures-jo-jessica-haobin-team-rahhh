@@ -17,12 +17,9 @@ class player:
             mage.health, mage.fireball, mage.laserbeam = 150, 70, 50
     createplayer()
 
-global b
-b = random.randint(1,100)
 
-def spawn_enemy(b):  
-    b = random.randint(1,100)
-    global enemy_attack, enemy_health, enemy_name 
+def spawn_enemy(b):
+    global enemy_attack, enemy_health, enemy_name
     if b > 90:
         print("A Dragon spawned")
         enemy_name, enemy_attack, enemy_health = data[0]['Name'], data[0]['Damage'], data[0]['Health']
@@ -66,6 +63,7 @@ def warrior_fight(warrior, enemy):
                     if  enemy_health <= 0: 
                         enemy_health = 0
                         dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'], [''])
+                        return
                     else: 
                         os.system('cls')
                         dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: '], [''])
@@ -76,6 +74,7 @@ def warrior_fight(warrior, enemy):
                         enemy_health = 0
                         os.system('cls')
                         dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'], [''])
+                        return
                     else: 
                         os.system('cls')
                         dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.",'Press any button to continue: '], [''])
@@ -107,6 +106,7 @@ def warrior_fight(warrior, enemy):
                             enemy_health = 0
                             os.system('cls')
                             dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'], [''])
+                            return
                         else: 
                             os.system('cls')
                             dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: '], [''])
@@ -119,6 +119,7 @@ def warrior_fight(warrior, enemy):
                     character = 0
                     os.system('cls')
                     dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You lost'], [''])
+                    return
                 else: 
                     dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.",'Press any button to continue: '], [''])
 
@@ -205,9 +206,9 @@ def mage_fight(mage, enemy):
 
 
 def fight(enemy, warrior, mage):
-    global b 
     global enemy_health, enemy_attack, enemy_name
     os.system('cls')
+    b = random.randint(1, 100)
     spawn_enemy(b)
     dialogue([f"You are on an adventure and you encounter a {enemy_name}. The chances of you attacking and the enemy attacking is decided by 2 dices.", 'Press any buttons to continue to fight:  '], [''])
     os.system('cls')
