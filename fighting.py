@@ -45,6 +45,7 @@ def dialogue(Statements = '', Options = ''):
         while Choices not in Options:
             Choices = input(f"{'|'.join(Options)}: ").lower()
         return Choices
+    else: input(Options)
     
 def warrior_fight(warrior, enemy):
     global b
@@ -65,10 +66,9 @@ def warrior_fight(warrior, enemy):
                     if  enemy_health <= 0: 
                         enemy_health = 0
                         dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'], [''])
-                        return
                     else: 
                         os.system('cls')
-                        dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: '], [' '])
+                        dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: '], [''])
                 elif Choices == 'knife throw':
                     os.system('cls')
                     enemy_health -=knife_throw
@@ -76,17 +76,16 @@ def warrior_fight(warrior, enemy):
                         enemy_health = 0
                         os.system('cls')
                         dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'], [''])
-                        return
                     else: 
                         os.system('cls')
-                        dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP."], ['Press any button to continue: '])
+                        dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.",'Press any button to continue: '], [''])
                             
             elif a + g == 6:
-                dialogue([f"You've rolled a {a+g} so you can choose to heal instead of attack", 'Choose between the following' ], ['heal', 'attack'])
+                Choices = dialogue([f"You've rolled a {a+g} so you can choose to heal instead of attack", 'Choose between the following' ], ['heal', 'attack'])
                 if Choices == 'heal':
                     os.system('cls')
                     character += 100
-                    dialogue([f"You've healed 100 hp. You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP."], ['Press any button to continue: '])
+                    dialogue([f"You've healed 100 hp. You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: '], [''])
                 elif Choices == 'attack':
                     os.system('cls')
                     print('Choose between the following')
@@ -100,7 +99,7 @@ def warrior_fight(warrior, enemy):
                             return
                         else: 
                             os.system('cls')
-                            dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.",'Press any button to continue: '], [' '])
+                            dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.",'Press any button to continue: '], [''])
                     elif Choices == 'knife throw':
                         os.system('cls')
                         enemy_health -=knife_throw
@@ -108,10 +107,9 @@ def warrior_fight(warrior, enemy):
                             enemy_health = 0
                             os.system('cls')
                             dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'], [''])
-                            return
                         else: 
                             os.system('cls')
-                            dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: '], [' '])
+                            dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: '], [''])
 
             elif a + g < 6:
                 os.system('cls')
@@ -121,9 +119,8 @@ def warrior_fight(warrior, enemy):
                     character = 0
                     os.system('cls')
                     dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You lost'], [''])
-                    return
                 else: 
-                    dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.",'Press any button to continue: '], [' '])
+                    dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.",'Press any button to continue: '], [''])
 
 def mage_fight(mage, enemy):
     global b
@@ -136,35 +133,32 @@ def mage_fight(mage, enemy):
             os.system('cls')
             a, g = random.randint(1,6), random.randint(1,6)
             if a + g > 7:
-                statements(f"You've rolled a {a+g} so you can attack.", 'Choose between the following attacks')
-                dialogue(['fireball', 'laserbeam'])
+                Choices = dialogue([f"You've rolled a {a+g} so you can attack", "Choose between the following attacks"], ['fireball', 'laserbeam'])
                 if Choices == 'fireball':
                     os.system('cls')
                     enemy_health -=fireball
                     if  enemy_health <= 0:
                         os.system('cls')
                         enemy_health= 0
-                        statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win')
+                        dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'], [''])
                         return
                     else: 
-                        continuation_statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: ')
+                        dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: '], [''])
                 elif Choices == 'laserbeam':
                     os.system('cls')
                     enemy_health -=laserbeam
                     if  enemy_health <= 0:
                         os.system('cls')
                         enemy_health = 0
-                        statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win')
+                        dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'], [''])
                         return
                     else: 
                         os.system('cls')
-                        continuation_statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: ')
+                        dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.",'Press any button to continue: '], [''])
                     
-                        
             elif a + g == 7:
                 os.system('cls')
-                statements(f"You've rolled a {a+g} so you can choose to heal instead of attack", 'Choose between the following')
-                dialogue(['heal', 'attack'])
+                Choices = dialogue([f"You've rolled a {a+g} so you can choose to heal instead of attack", 'Choose between the following' ], ['heal', 'attack'])
                 if Choices == 'heal':
                     os.system('cls')
                     character += 100
@@ -172,29 +166,30 @@ def mage_fight(mage, enemy):
                     input('Press any button to continue: ')
                 elif Choices == 'attack':
                     os.system('cls')
-                    dialogue(['fireball', 'laserbeam'])
+                    print('Choose between the following')
+                    Choices = dialogue([''],['fireball', 'laserbeam'])
                     if  Choices == 'fireball':
                         os.system('cls')
                         enemy_health -=fireball
                         if  enemy_health <= 0:
                             os.system('cls')
                             enemy_health = 0
-                            statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win')
+                            dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'], [''])
                             return
                         else: 
                             os.system('cls')
-                            continuation_statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: ')
+                            dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: '], [''])
 
                     elif Choices == 'laserbeam':
                         enemy_health -=laserbeam
                         if  enemy_health <= 0:
                             enemy_health = 0
                             os.system('cls')
-                            statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win')
+                            dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'], [''])
                             return
                         else: 
                             os.system('cls')
-                            continuation_statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: ')
+                            dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: '], [''])
 
             elif a + g < 7:
                 os.system('cls')
@@ -203,10 +198,10 @@ def mage_fight(mage, enemy):
                 if character <= 0:
                     character = 0
                     os.system('cls')
-                    statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You lost')
+                    dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You lost'], [''])
                     return
                 else: 
-                    continuation_statements(f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: ')
+                    dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.",'Press any button to continue: '], [''])
 
 
 def fight(enemy, warrior, mage):
@@ -214,14 +209,12 @@ def fight(enemy, warrior, mage):
     global enemy_health, enemy_attack, enemy_name
     os.system('cls')
     spawn_enemy(b)
-    print(f"You are on an adventure and you encounter a {enemy_name}. The chances of you attacking and the enemy attacking is decided by 2 dices.")
-    input('Press any buttons to continue to fight: ')
+    dialogue([f"You are on an adventure and you encounter a {enemy_name}. The chances of you attacking and the enemy attacking is decided by 2 dices.", 'Press any buttons to continue to fight:  '], [''])
     os.system('cls')
     if h == "warrior":
         warrior_fight(warrior, enemy)
     elif h == "mage":
         mage_fight(mage, enemy)
-
 fight(enemy, warrior, mage)
 
 
