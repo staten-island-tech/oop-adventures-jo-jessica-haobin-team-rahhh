@@ -53,15 +53,17 @@ def SHOP():
                return_to_tut = input("returning to main...")
                SHOP()
      if Welcoming_to_SHOP == "SELL":
-          sell = input("What item would you like to sell? If you would like to leave press L: ").title(), print(Users.inventory)
+          sell = input("What item would you like to sell? If you would like to leave press L: ").title()
           if sell == "L":
                return_to_tut = input("returning to shop....")
                SHOP()
-          add_merchant_item = NPC.buy(sell)
-          subtract_users_item = Users.sell(sell)
-          add_money = Users.add_currency(100)
-          return_to_tut = input("Thank you for shopping...")
-          SHOP()
+          if sell in Users.inventory:
+               print(Users.inventory)
+               add_merchant_item = NPC.buy(sell)
+               subtract_users_item = Users.sell(sell)
+               add_money = Users.add_currency(100)
+               return_to_tut = input("Thank you for shopping...")
+               SHOP()
           os.system('cls')
      if Welcoming_to_SHOP == "LEAVE":
           print("Thank you for coming...")
