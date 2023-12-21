@@ -21,7 +21,7 @@ class player:
         self.health = health
     def createplayer():
         global h
-        h = dialogue(Statements=['Choose between Warrior and Mage: '], Options=['Warrior', 'Mage'])
+        h = dialogue(['Choose between Warrior and Mage: '], ['Warrior', 'Mage'])
         if h == "Warrior":
             warrior.health, warrior.stab, warrior.knife_throw = 100, 30, 10
         elif h == "Mage":
@@ -29,7 +29,7 @@ class player:
 
 def spawn_enemy(b):
     global enemy_attack, enemy_health, enemy_name
-    if b > 90:
+    if b < 90:
         print("A Dragon spawned")
         enemy_name, enemy_attack, enemy_health = data[0]['Name'], data[0]['Damage'], data[0]['Health']
     elif b > 50:
@@ -42,9 +42,10 @@ def spawn_enemy(b):
         print("A Goblin spawned")
         enemy_name, enemy_attack, enemy_health = data[1]['Name'], data[1]['Damage'], data[1]['Health']
     
-def warrior_fight(warrior, enemy):
+def warrior_fight(warrior):
     global b
     global enemy_health, enemy_attack, enemy_name
+
 
     character, stab, knife_throw = warrior.health, warrior.stab, warrior.knife_throw
     while True:
@@ -54,7 +55,7 @@ def warrior_fight(warrior, enemy):
             os.system('cls')
             a, g = random.randint(1,6), random.randint(1,6)
             if a + g > 6: 
-                Choices = dialogue([f"You've rolled a {a+g} so you can attack", "Choose between the following attacks"], ['stab','knife throw'])
+                Choices = dialogue([f"You've rolled a {a+g} so you can attack", "Choose between the following attacks"], ['Stab','Knife Throw'])
                 if Choices == 'Stab':
                     os.system('cls')
                     enemy_health -=stab
@@ -78,7 +79,7 @@ def warrior_fight(warrior, enemy):
                         dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.",'Press any button to continue: '])
                             
             elif a + g == 6:
-                Choices = dialogue([f"You've rolled a {a+g} so you can choose to heal instead of attack", 'Choose between the following' ], ['heal', 'attack'])
+                Choices = dialogue([f"You've rolled a {a+g} so you can choose to heal instead of attack", 'Choose between the following' ], ['Heal', 'Attack'])
                 if Choices == 'Heal':
                     os.system('cls')
                     character += 100
@@ -86,7 +87,7 @@ def warrior_fight(warrior, enemy):
                 elif Choices == 'Attack':
                     os.system('cls')
                     print('Choose between the following')
-                    dialogue(['stab', 'knife throw'])
+                    dialogue(Options=['Stab', 'Knife Throw'])
                     if  Choices == 'Stab':
                         enemy_health -=stab
                         if  enemy_health <= 0:
@@ -121,7 +122,7 @@ def warrior_fight(warrior, enemy):
                 else: 
                     dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.",'Press any button to continue: '])
 
-def mage_fight(mage, enemy):
+def mage_fight(mage):
     global b
     global enemy_health, enemy_attack, enemy_name
     character, fireball, laserbeam = mage.health, mage.fireball, mage.laserbeam
@@ -132,7 +133,7 @@ def mage_fight(mage, enemy):
             os.system('cls')
             a, g = random.randint(1,6), random.randint(1,6)
             if a + g > 7:
-                Choices = dialogue([f"You've rolled a {a+g} so you can attack", "Choose between the following attacks"], ['fireball', 'laserbeam'])
+                Choices = dialogue([f"You've rolled a {a+g} so you can attack", "Choose between the following attacks"], ['Fireball', 'Laserbeam'])
                 if Choices == 'Fireball':
                     os.system('cls')
                     enemy_health -=fireball
@@ -157,7 +158,7 @@ def mage_fight(mage, enemy):
                     
             elif a + g == 7:
                 os.system('cls')
-                Choices = dialogue([f"You've rolled a {a+g} so you can choose to heal instead of attack", 'Choose between the following' ], ['heal', 'attack'])
+                Choices = dialogue([f"You've rolled a {a+g} so you can choose to heal instead of attack", 'Choose between the following' ], ['Heal', 'Attack'])
                 if Choices == 'Heal':
                     os.system('cls')
                     character += 100
@@ -165,7 +166,7 @@ def mage_fight(mage, enemy):
                 elif Choices == 'Attack':
                     os.system('cls')
                     print('Choose between the following')
-                    Choices = dialogue([''],['fireball', 'laserbeam'])
+                    Choices = dialogue(Options=['Fireball', 'Laserbeam'])
                     if  Choices == 'Fireball':
                         os.system('cls')
                         enemy_health -=fireball
@@ -201,7 +202,7 @@ def mage_fight(mage, enemy):
                 else: 
                     dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.",'Press any button to continue: '])
 
-def fight(enemy, warrior, mage):
+def fight():
     global enemy_health, enemy_attack, enemy_name
     os.system('cls')
     player.createplayer()
@@ -210,10 +211,10 @@ def fight(enemy, warrior, mage):
     dialogue([f"You are on an adventure and you encounter a {enemy_name}. The chances of you attacking and the enemy attacking is decided by 2 dices.", 'Press any buttons to continue to fight:  '])
     os.system('cls')
     if h == "Warrior":
-        warrior_fight(warrior, enemy)
+        warrior_fight(warrior)
     elif h == "Mage":
-        mage_fight(mage, enemy)
-fight(enemy, warrior, mage)
+        mage_fight(mage)
+fight()
 
 
 
