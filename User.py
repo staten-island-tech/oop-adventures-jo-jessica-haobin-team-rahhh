@@ -32,7 +32,7 @@ class User:
             enemy.hp -= attack_dmg
         if dice_1 + dice_2 > 6:
             print(f"You've rolled a {dice_1} and {dice_2}. Your turn has been skipped...")
-            
+    
             
             
 

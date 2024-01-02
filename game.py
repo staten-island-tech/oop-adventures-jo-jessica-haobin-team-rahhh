@@ -3,11 +3,13 @@ from user import User
 from enemy import ENEMY
 import random, os
 from tutorial import tut
+from shop import shops
 os.system('cls')
 
 #WORLD STUFF YAH YAH
 name = input("Please insert your name: ").title()
-products = ["Gun", "Sword", "Healing-Potion", "Toy-Goblin"]
+products = (["Gun", "Sword", "Healing-Potion", "Toy-Goblin"])
+
 #LATER CREATE A CLASS THAT ALLOWS YOU TO ADD ATTACK DMG BY A CERTAIN AMOUNT IF YOU DO
 coins = 200
 HEALTH = 100
@@ -32,44 +34,19 @@ def after_tut():
           FINAL_BATTLE()
      if fjji == "INVENTORY":
           inventory()
-def SHOP():
-     os.system('cls')
-     Welcoming_to_SHOP = input("Welcome to the SHOP! Would you like to sell items or buy them? BUY/SELL/LEAVE: ").upper()
-
-     if Welcoming_to_SHOP == "BUY":
-          for item in products:
-               print(f'ITEM: {item}, AMOUNT: 100')               
-          Buy = input("What item would you like to buy?: ").title()
-
-          if Users.currency > 0:
-               merchant_sells = NPC.sell(Buy)
-               user_buys = Users.buy(Buy)
-               user_remove_buddys_currency_so_he_becomes_Broke_ash = Users.remove_currency(100)
-               return_to_tut = input("Thank you for shopping...")
-               SHOP()
-               os.system('cls')
-          if Users.currency <= 0:
-               no_money_bozo = input("Error... You do not have enough...")
-               return_to_tut = input("returning to main...")
-               SHOP()
-     if Welcoming_to_SHOP == "SELL":
-          sell = input("What item would you like to sell? If you would like to leave press L: ").title()
-          if sell == "L":
-               return_to_tut = input("returning to shop....")
-               SHOP()
-          if sell in Users.inventory:
-               print(Users.inventory)
-               add_merchant_item = NPC.buy(sell)
-               subtract_users_item = Users.sell(sell)
-               add_money = Users.add_currency(100)
-               return_to_tut = input("Thank you for shopping...")
-               SHOP()
-          os.system('cls')
-     if Welcoming_to_SHOP == "LEAVE":
-          print("Thank you for coming...")
-          after_tut()
+def shopping():
+     
 def inventory():
      show_inv = input(f"INVENTORY: {Users.inventory} ")
+     equip = input("Would you like to equip anything? Y/N: ").upper()
+     if equip == "N":
+          input("Ok.. Returning to main screen...")
+     if equip == "Y":
+          item = input("What would you like to equip?").title()
+          if item in Users.inventory:
+               input(f"{item} is now equipped")
+          if item not in Users.inventory:
+               print("You're stupid as hell, you didn't type in an item you have you clown.")
      after_tut()
 def BATTLE():
      Welcoming_to_BATTLE = input("You've entered the battle... press enter to continue..")
