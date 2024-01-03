@@ -36,12 +36,13 @@ def warrior_fight(enemy_name):
     elif enemy_name == 'Zombie': enemy_name, enemy_attack, enemy_health = data[2]['Name'], data[2]['Damage'], data[2]['Health']
     elif enemy_name == 'Skeleton': enemy_name, enemy_attack, enemy_health = data[3]['Name'], data[3]['Damage'], data[3]['Health']
     elif enemy_name == 'Goblin': enemy_name, enemy_attack, enemy_health = data[1]['Name'], data[1]['Damage'], data[1]['Health']
+    elif enemy_name == 'Mr.Whalen': enemy_name, enemy_attack, enemy_health = data[4]['Name'], data[4]['Damage'], data[4]['Health']
+    character, stab, knife_throw = 100, random.randint(20, 40), random.randint(10,70)
     while True:
-        character, stab, knife_throw = 100, random.randint(20, 40), random.randint(10,70)
         os.system('cls')
         a, g = random.randint(1,6), random.randint(1,6)
         if a + g > 6: 
-            Choices = dialogue([f"You've rolled a {a+g} so you can attack", "Choose between the following attacks"], ['Stab','Knife Throw'])
+            Choices = dialogue([f"You've rolled a {a+g} so you can attack", "Choose between the following attacks"], ['Stab','Knife throw'])
             if Choices == 'Stab':
                 os.system('cls')
                 enemy_health -=stab
@@ -52,7 +53,7 @@ def warrior_fight(enemy_name):
                 else: 
                     os.system('cls')
                     dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: '])
-            elif Choices == 'Knife Throw':
+            elif Choices == 'Knife throw':
                 os.system('cls')
                 enemy_health -=knife_throw
                 if enemy_health <= 0:
@@ -73,7 +74,7 @@ def warrior_fight(enemy_name):
             elif Choices == 'Attack':
                 os.system('cls')
                 print('Choose between the following')
-                dialogue(Options=['Stab', 'Knife Throw'])
+                dialogue(Options=['Stab', 'Knife throw'])
                 if  Choices == 'Stab':
                     enemy_health -=stab
                     if  enemy_health <= 0:
@@ -84,7 +85,7 @@ def warrior_fight(enemy_name):
                     else: 
                         os.system('cls')
                         dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.",'Press any button to continue: '])
-                elif Choices == 'Knife Throw':
+                elif Choices == 'Knife throw':
                     os.system('cls')
                     enemy_health -=knife_throw
                     if  enemy_health <= 0:
@@ -113,8 +114,9 @@ def mage_fight(enemy_name):
     elif enemy_name == 'Zombie': enemy_name, enemy_attack, enemy_health = data[2]['Name'], data[2]['Damage'], data[2]['Health']
     elif enemy_name == 'Skeleton': enemy_name, enemy_attack, enemy_health = data[3]['Name'], data[3]['Damage'], data[3]['Health']
     elif enemy_name == 'Goblin': enemy_name, enemy_attack, enemy_health = data[1]['Name'], data[1]['Damage'], data[1]['Health']
+    elif enemy_name == 'Mr.Whalen': enemy_name, enemy_attack, enemy_health = data[4]['Name'], data[4]['Damage'], data[4]['Health']
+    character, fireball, laserbeam = 150, random.randint(30, 120), random.randint(50, 60)
     while True:
-        character, fireball, laserbeam = 150, 70, 50
         os.system('cls')
         a, g = random.randint(1,6), random.randint(1,6)
         if a + g > 7:
@@ -200,9 +202,3 @@ def fight():
         warrior_fight(enemy_name)
     elif h == "Mage":
         mage_fight(enemy_name)
-fight()
-
-
-
-
-
