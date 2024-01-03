@@ -1,11 +1,12 @@
 import random
 class User:
-    def __init__(self, name, hp, currency, inventory, exp):
+    def __init__(self, name, hp, currency, inventory, exp, equipped_items):
         self.name = name
         self.hp = hp
         self.currency = currency
         self.inventory = inventory
         self.exp = exp
+        self.equipped = equipped_items
     def buy(self, item):
         self.inventory.append(item)
         print(f"INVENTORY : {self.inventory}")
@@ -32,6 +33,10 @@ class User:
             enemy.hp -= attack_dmg
         if dice_1 + dice_2 > 6:
             print(f"You've rolled a {dice_1} and {dice_2}. Your turn has been skipped...")
+    def remove_item_from_equipped(self, item):
+        self.equipped.remove(item)
+    def remove_item_from_equipped(self, item):
+        self.equipped.append(item)
     
             
             
