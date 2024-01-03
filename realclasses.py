@@ -6,7 +6,7 @@ class user():
         self.weapon = weapon
         self.skills = skills
         #health = 100
-#this is a substitute for josephine's code
+
 
 weapon = "fist"
 
@@ -48,11 +48,6 @@ class stuff_you_can_do():
 
 
     
-    
-    
-    
-    
-stuff_you_can_do.start_fight()
     
     
     
