@@ -1,5 +1,4 @@
 import random, os, json
-from realclasses import warrior, mage
 os.system('cls')
 
 data = open("./data.json", encoding="utf8")
