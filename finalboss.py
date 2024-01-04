@@ -19,9 +19,3 @@ class finalboss:
             mage_fight(enemy_name)
 
 
-def capital_indexes(string):
-    for letter in string:
-        if letter.capitalize() == string:
-            print(letter.capitalize())
-        
-capital_indexes("HeLlO")
