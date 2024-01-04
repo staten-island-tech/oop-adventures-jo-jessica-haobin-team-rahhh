@@ -35,7 +35,7 @@ class User:
             print(f"You've rolled a {dice_1} and {dice_2}. Your turn has been skipped...")
     def remove_item_from_equipped(self, item):
         self.equipped.remove(item)
-    def remove_item_from_equipped(self, item):
+    def add_item_from_equipped(self, item):
         self.equipped.append(item)
     
             

@@ -23,7 +23,7 @@ equipped = False
 
 #create a function that allows the user to take out items and use it to attack.
 
-d.tutorial()  
+""" d.tutorial()  """ 
 def after_tut():
      os.system('cls')
      fjji = input("Where would you like to go? SHOP/INVENTORY/BATTLE(Attack other enemies)/FINAL BATTLE: ").upper()
@@ -86,20 +86,32 @@ def inventory():
      show_inv = input(f"INVENTORY: {Users.inventory} ")
      equip = input("Would you like to equip anything? Y/N: ").upper()
      if equip == "N":
+          check_equip = input("Would you like to check your equipped items? Y/N: ").upper()
+          if check_equip == "Y":
+               input(f"Equipped: {Users.equipped}")
           input("Ok.. Returning to main screen...")
      if equip == "Y":
           item = input("What would you like to equip?").title()
+          if item not in Users.inventory:
+               print("clowner misspelled 🤡 ")
           if item in Users.inventory:
                equipped = False
                if equipped == False:
-                    Users.equipped(item)
+                    Users.add_item_from_equipped(item)
                     input(f"{item} is now equipped")
+                    return True
+               
                if equipped == True:
-                    equip_diff_item = input(f"You already have {Users.equipped} equipped. Are you sure you want to equip a different item?")
-
-          if item not in Users.inventory:
-               print("clowner misspelled 🤡 ")
-     after_tut()
+                    equip_diff_item = input(f"You already have {Users.equipped} equipped. Are you sure you want to equip a different item? Y/N: ").title()
+                    if equip_diff_item == "Y":
+                         Users.remove_item_from_equipped(Users.equipped)
+                         Users.add_item_from_equipped(item)
+                         input(f"You have now equipped {item}.")
+                         
+                    if equip_diff_item == "N":
+                         input("Ok.. returning to main screen...")
+          after_tut()
+          
 def BATTLE():
      Welcoming_to_BATTLE = input("You've entered the battle... press enter to continue..")
      type = random.randint(1,4)
