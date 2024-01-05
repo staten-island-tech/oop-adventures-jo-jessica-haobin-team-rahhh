@@ -3,7 +3,7 @@ from user import User
 from enemy import ENEMY
 import random, os
 from tutorial import tut
-
+import traceback
 os.system('cls')
 
 #WORLD STUFF YAH YAH
@@ -26,15 +26,19 @@ equipped = False
 """ d.tutorial()  """ 
 def after_tut():
      os.system('cls')
+     for line in traceback.format_stack():
+        print(line.strip())
      fjji = input("Where would you like to go? SHOP/INVENTORY/BATTLE(Attack other enemies)/FINAL BATTLE: ").upper()
      if fjji == "SHOP":
           SHOP()
+          
      if fjji == "BATTLE":
           BATTLE()
      if fjji == "FINAL BATTLE":
           FINAL_BATTLE()
      if fjji == "INVENTORY":
           inventory()
+     
 def SHOP():
      os.system('cls')
      Welcoming_to_SHOP = input("Welcome to the SHOP! Would you like to sell items or buy them? BUY/SELL/LEAVE: ").upper()
@@ -50,28 +54,26 @@ def SHOP():
                     user_buys = Users.buy(Buy)
                     user_remove_buddys_currency_so_he_becomes_Broke_ash = Users.remove_currency(100)
                     return_to_tut = input("Thank you for shopping...")
-                    SHOP()
                     os.system('cls')
                if Users.currency <= 0:
                     no_money_bozo = input("Error... You do not have enough...")
                     return_to_tut = input("returning to main...")
-                    SHOP()
           else: 
                input("clowner misspelled 🤡 ")
-               SHOP()
+    
           
      if Welcoming_to_SHOP == "SELL":
           sell = input("What item would you like to sell? If you would like to leave press L: ").title()
           if sell == "L":
                return_to_tut = input("returning to shop....")
-               SHOP()
+        
           if sell in Users.inventory:
                print(Users.inventory)
                add_merchant_item = NPC.buy(sell)
                subtract_users_item = Users.sell(sell)
                add_money = Users.add_currency(100)
                return_to_tut = input("Thank you for shopping...")
-               SHOP()
+        
           else: 
                input("clowner misspelled 🤡 ")
                SHOP()
