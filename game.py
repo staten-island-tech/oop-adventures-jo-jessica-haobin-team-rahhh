@@ -1,5 +1,5 @@
 from merchant import Merchant
-from user import User
+from User import User
 from enemy import ENEMY
 import random, os
 from tutorial import tut
@@ -26,8 +26,7 @@ equipped = False
 """ d.tutorial()  """ 
 def after_tut():
      os.system('cls')
-     for line in traceback.format_stack():
-        print(line.strip())
+    
      fjji = input("Where would you like to go? SHOP/INVENTORY/BATTLE(Attack other enemies)/FINAL BATTLE: ").upper()
      if fjji == "SHOP":
           SHOP()
