@@ -30,7 +30,6 @@ def after_tut():
      fjji = input("Where would you like to go? SHOP/INVENTORY/BATTLE(Attack other enemies)/FINAL BATTLE: ").upper()
      if fjji == "SHOP":
           SHOP()
-          
      if fjji == "BATTLE":
           BATTLE()
      if fjji == "FINAL BATTLE":
@@ -48,15 +47,16 @@ def SHOP():
           Buy = input("What item would you like to buy?: ").title()
 
           if Buy in products:
+               if Users.currency <= 0:
+                    no_money_bozo = input("Error... You do not have enough...")
+                    return_to_tut = input("returning to main...")
                if Users.currency > 0:
                     merchant_sells = NPC.sell(Buy)
                     user_buys = Users.buy(Buy)
                     user_remove_buddys_currency_so_he_becomes_Broke_ash = Users.remove_currency(100)
                     return_to_tut = input("Thank you for shopping...")
                     os.system('cls')
-               if Users.currency <= 0:
-                    no_money_bozo = input("Error... You do not have enough...")
-                    return_to_tut = input("returning to main...")
+                 
           else: 
                input("clowner misspelled 🤡 ")
     
@@ -80,9 +80,7 @@ def SHOP():
      if Welcoming_to_SHOP == "LEAVE":
           print("Thank you for coming...")
           after_tut()
-     else: 
-          input("clowner misspelled 🤡 ")
-          SHOP()
+     after_tut()
 def inventory():
      show_inv = input(f"INVENTORY: {Users.inventory} ")
      equip = input("Would you like to equip anything? Y/N: ").upper()
@@ -91,27 +89,32 @@ def inventory():
           if check_equip == "Y":
                input(f"Equipped: {Users.equipped}")
           input("Ok.. Returning to main screen...")
+          after_tut()
      if equip == "Y":
-          item = input("What would you like to equip?").title()
-          if item not in Users.inventory:
-               print("clowner misspelled 🤡 ")
-          if item in Users.inventory:
+          buddy_wanna_equip = input("What would you like to equip?: ").title()
+          if buddy_wanna_equip in Users.inventory:
                equipped = False
                if equipped == False:
-                    Users.add_item_from_equipped(item)
-                    input(f"{item} is now equipped")
-                    return True
+                    Users.equipped.append(buddy_wanna_equip)
+                    input(f"{buddy_wanna_equip} is now equipped")
+                    equipped = True
+                    return equipped
+               
                
                if equipped == True:
                     equip_diff_item = input(f"You already have {Users.equipped} equipped. Are you sure you want to equip a different item? Y/N: ").title()
                     if equip_diff_item == "Y":
                          Users.remove_item_from_equipped(Users.equipped)
-                         Users.add_item_from_equipped(item)
-                         input(f"You have now equipped {item}.")
+                         Users.add_item_from_equipped(buddy_wanna_equip)
+                         input(f"You have now equipped {buddy_wanna_equip}.")
+                    
                          
-                    if equip_diff_item == "N":
-                         input("Ok.. returning to main screen...")
-          after_tut()
+               if equip_diff_item == "N":
+                    input("Ok.. returning to main screen...")
+               after_tut()
+               
+     
+     
           
 def BATTLE():
      Welcoming_to_BATTLE = input("You've entered the battle... press enter to continue..")

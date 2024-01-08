@@ -35,8 +35,24 @@ class User:
             print(f"You've rolled a {dice_1} and {dice_2}. Your turn has been skipped...")
     def remove_item_from_equipped(self, item):
         self.equipped.remove(item)
-    def add_item_from_equipped(self, item):
-        self.equipped.append(item)
+    def add_item_from_equipped(self, item, Users):
+        equipped = False
+        if equipped == False:
+            self.equipped.append(item)
+            input(f"{item} is now equipped")
+            equipped = True
+            return equipped
+               
+        if equipped == True:
+            equip_diff_item = input(f"You already have {Users.equipped} equipped. Are you sure you want to equip a different item? Y/N: ").title()
+            if equip_diff_item == "Y":
+                Users.remove_item_from_equipped(Users.equipped)
+                Users.add_item_from_equipped(item)
+                input(f"You have now equipped {item}.")
+                         
+            if equip_diff_item == "N":
+                input("Ok.. returning to main screen...")
+       
     
             
             
