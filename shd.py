@@ -37,3 +37,20 @@ if equip == "Y":
                          
                     if equip_diff_item == "N":
                          input("Ok.. returning to main screen...")
+
+equipped = False
+               if equipped == False:
+                    Users.equipped.append(buddy_wanna_equip)
+                    input(f"{buddy_wanna_equip} is now equipped")
+                    equipped = True
+                    return equipped
+               
+               if equipped == True:
+                    equip_diff_item = input(f"You already have {Users.equipped} equipped. Are you sure you want to equip a different item? Y/N: ").title()
+                    if equip_diff_item == "Y":
+                         Users.remove_item_from_equipped(Users.equipped)
+                         Users.add_item_from_equipped(buddy_wanna_equip)
+                         input(f"You have now equipped {buddy_wanna_equip}.")
+                    
+               if equip_diff_item == "N":
+                    input("Ok.. returning to main screen...")
