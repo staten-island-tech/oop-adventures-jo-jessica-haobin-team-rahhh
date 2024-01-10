@@ -40,6 +40,7 @@ class User:
         if equipped == False:
             self.equipped.append(item)
             input(f"{item} is now equipped")
+            Users.remove_item_from_equiped(item)
             equipped = True
             return equipped
                
