@@ -4,11 +4,8 @@ def findcapitalletter(string):
     for letter in string:
         strlist = list(string)
         for letter in strlist:
+            strlist.remove(letter)
             if letter.upper() == letter:
                 lister.append(string.index(letter))
-
     return lister
-
-
-ste = ['S', 'S', 'S', 'A', 'D']
-print(ste.remove('S'))
+print(findcapitalletter("TEsT"))
