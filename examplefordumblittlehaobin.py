@@ -1,16 +1,14 @@
 import os, time
 def findcapitalletter(string):
-    list = []
+    lister = []
     for letter in string:
-        if letter.upper() == letter:
-            list.append(letter)
-    return list
-print(findcapitalletter('HeLlO'))
+        strlist = list(string)
+        for letter in strlist:
+            if letter.upper() == letter:
+                lister.append(string.index(letter))
+
+    return lister
 
 
-os.system('cls')
-i = 2
-while True:
-    time.sleep(1)
-    i**=2
-    print(i)
+ste = ['S', 'S', 'S', 'A', 'D']
+print(ste.remove('S'))
