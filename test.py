@@ -27,3 +27,6 @@ import random
 g = list(range(1,6))
 random.shuffle(g)
 print(g)
+
+
+
