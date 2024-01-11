@@ -35,6 +35,13 @@ def enemy2():
 
     with open('data.json', mode='w') as outfile:
         data = json.dump(data, outfile, indent=4)
+
+with open('item.json', mode='r') as  readfile:
+    data = json.load(readfile)
+
+def itemstuff():
+    global data
+    weaponname = input('Name')
     
 def answer_response(Options: list):
     Choices = input(f"{'/'.join(Options)}: ").lower()
