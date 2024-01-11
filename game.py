@@ -8,7 +8,8 @@ os.system('cls')
 
 #WORLD STUFF YAH YAH
 name = input("Please insert your name: ").title()
-products = ["Gun", "Sword", "Healing-Potion", "Toy-Goblin"]
+products = ["Gun", "Sword", "Axe", "Hammer"]
+
 
 #LATER CREATE A CLASS THAT ALLOWS YOU TO ADD ATTACK DMG BY A CERTAIN AMOUNT IF YOU DO
 coins = 200
@@ -26,7 +27,7 @@ equipped = False
 """ d.tutorial()  """ 
 def after_tut():
      os.system('cls')
-    
+     
      fjji = input("Where would you like to go? SHOP/INVENTORY/BATTLE(Attack other enemies)/FINAL BATTLE: ").upper()
      if fjji == "SHOP":
           SHOP()
@@ -36,6 +37,10 @@ def after_tut():
           FINAL_BATTLE()
      if fjji == "INVENTORY":
           inventory()
+     else: 
+          input("clowner misspelled 🤡 ")
+          after_tut()
+
      
 def SHOP():
      os.system('cls')

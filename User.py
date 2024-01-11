@@ -40,13 +40,14 @@ class User:
         if equipped == False:
             self.equipped.append(item)
             input(f"{item} is now equipped")
-            Users.remove_item_from_equiped(item)
+            Users.inventory.remove(item)
             equipped = True
             return equipped
-               
+
         if equipped == True:
             equip_diff_item = input(f"You already have {Users.equipped} equipped. Are you sure you want to equip a different item? Y/N: ").title()
             if equip_diff_item == "Y":
+                Users.inventory.remove(Users.equipped)
                 Users.remove_item_from_equipped(Users.equipped)
                 Users.add_item_from_equipped(item)
                 input(f"You have now equipped {item}.")
