@@ -48,9 +48,6 @@ class partsinbattle:
                     if  enemy_health <= 0: 
                         enemy_health = 0
                         os.system('cls')
-                        print("Wait 10 seconds")
-                        time.sleep(10)
-                        os.system('cls')
                         dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'])
                         break
                     else: 
@@ -61,9 +58,6 @@ class partsinbattle:
                     enemy_health -=knife_throw
                     if enemy_health <= 0:
                         enemy_health = 0
-                        os.system('cls')
-                        print("Wait 10 seconds")
-                        time.sleep(10)
                         os.system('cls')
                         dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'])
                         break
@@ -86,9 +80,6 @@ class partsinbattle:
                         if  enemy_health <= 0:
                             enemy_health = 0
                             os.system('cls')
-                            print("Wait 10 seconds")
-                            time.sleep(10)
-                            os.system('cls')
                             dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'])
                             break
                         else: 
@@ -99,9 +90,6 @@ class partsinbattle:
                         enemy_health -=knife_throw
                         if  enemy_health <= 0:
                             enemy_health = 0
-                            os.system('cls')
-                            print("Wait 10 seconds")
-                            time.sleep(10)
                             os.system('cls')
                             dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'])
                             break
@@ -139,9 +127,6 @@ class partsinbattle:
                     if  enemy_health <= 0:
                         enemy_health= 0
                         os.system('cls')
-                        print("Wait 10 seconds")
-                        time.sleep(10)
-                        os.system('cls')
                         dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'])
                         break
                     else: 
@@ -152,9 +137,6 @@ class partsinbattle:
                     if  enemy_health <= 0:
                         os.system('cls')
                         enemy_health = 0
-                        print("Wait 10 seconds")
-                        time.sleep(10)
-                        os.system('cls')
                         dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'])
                         break
                     else: 
@@ -178,9 +160,6 @@ class partsinbattle:
                         if  enemy_health <= 0:
                             os.system('cls')
                             enemy_health = 0
-                            print("Wait 10 seconds")
-                            time.sleep(10)
-                            os.system('cls')
                             dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'])
                             break
                         else: 
@@ -191,9 +170,6 @@ class partsinbattle:
                         enemy_health -=laserbeam
                         if  enemy_health <= 0:
                             enemy_health = 0
-                            os.system('cls')
-                            print("Wait 10 seconds")
-                            time.sleep(10)
                             os.system('cls')
                             dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'])
                             break
@@ -207,9 +183,6 @@ class partsinbattle:
                 character -=enemy_attack
                 if character <= 0:
                     character = 0
-                    os.system('cls')
-                    print("Wait 10 seconds")
-                    time.sleep(10)
                     os.system('cls')
                     dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You lost'])
                     break
