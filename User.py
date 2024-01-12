@@ -1,4 +1,5 @@
 import random
+
 class User:
     def __init__(self, name, hp, currency, inventory, exp, equipped_items):
         self.name = name
@@ -6,7 +7,7 @@ class User:
         self.currency = currency
         self.inventory = inventory
         self.exp = exp
-        self.equipped = equipped_items
+        self.equipped_items = []
     def buy(self, item):
         self.inventory.append(item)
         print(f"INVENTORY : {self.inventory}")
@@ -35,21 +36,16 @@ class User:
             print(f"You've rolled a {dice_1} and {dice_2}. Your turn has been skipped...")
     def remove_item_from_equipped(self, item):
         self.equipped.remove(item)
-    def add_item_from_equipped(self, item, Users):
-        equipped = False
-        if equipped == False:
-            self.equipped.append(item)
-            input(f"{item} is now equipped")
-            Users.inventory.remove(item)
-            equipped = True
-            return equipped
-
+    def add_item_from_equipped(self, item):
+        self.equipped_items.append(item)
+        # if item in self.equipped_items:
+            #stop them equipping
         if equipped == True:
             equip_diff_item = input(f"You already have {Users.equipped} equipped. Are you sure you want to equip a different item? Y/N: ").title()
             if equip_diff_item == "Y":
-                Users.inventory.remove(Users.equipped)
-                Users.remove_item_from_equipped(Users.equipped)
-                Users.add_item_from_equipped(item)
+                Users.inventory.append(Users.equipped)
+                Users.equipped.remove(Users.equipped)
+                Users.equipped.append(item)
                 input(f"You have now equipped {item}.")
                          
             if equip_diff_item == "N":

@@ -65,7 +65,6 @@ def SHOP():
           else: 
                input("clowner misspelled 🤡 ")
     
-          
      if Welcoming_to_SHOP == "SELL":
           sell = input("What item would you like to sell? If you would like to leave press L: ").title()
           if sell == "L":
@@ -86,6 +85,7 @@ def SHOP():
           print("Thank you for coming...")
           after_tut()
      after_tut()
+
 def inventory():
      show_inv = input(f"INVENTORY: {Users.inventory} ")
      equip = input("Would you like to equip anything? Y/N: ").upper()
@@ -100,9 +100,6 @@ def inventory():
           if buddy_wanna_equip in Users.inventory:
                Users.add_item_from_equipped(buddy_wanna_equip, Users)
           after_tut()
-               
-     
-     
           
 def BATTLE():
      Welcoming_to_BATTLE = input("You've entered the battle... press enter to continue..")
