@@ -36,12 +36,25 @@ def enemy2():
     with open('data.json', mode='w') as outfile:
         data = json.dump(data, outfile, indent=4)
 
-with open('item.json', mode='r') as  readfile:
-    data = json.load(readfile)
+with open('items.json', mode='r') as  readfile:
+    items = json.load(readfile)
 
 def itemstuff():
-    global data
-    weaponname = input('Name')
+    global items
+    weaponname = input('Name: ')
+    weaponbuff = float(input('Rate of Buff: '))
+
+    items.append(
+        {
+            "Name": weaponname,
+            "Rate of Buff": weaponbuff
+        }
+    )
+
+    with open('items.json', mode = 'w') as writefile:
+        items = json.dump(items, writefile, indent=4)
+
+itemstuff()
     
 def answer_response(Options: list):
     Choices = input(f"{'/'.join(Options)}: ").lower()
