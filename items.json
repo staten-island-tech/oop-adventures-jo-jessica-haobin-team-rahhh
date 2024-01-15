@@ -1,1 +1,37 @@
-[]
+[
+    {
+        "Name": "Stick of Justice",
+        "Rate of Buff": 1.2,
+        "Part that get Buff": "Damage"
+    },
+    {
+        "Name": "Helmet of Baldies ",
+        "Rate of Buff": 1.5,
+        "Part that get Buff": "Health"
+    },
+    {
+        "Name": "Gauntlet of Leaves",
+        "Rate of Buff": 2.0,
+        "Part that get Buff": "Damage"
+    },
+    {
+        "Name": "Branch of the Wilderness of NYC Sewers",
+        "Rate of Buff": 2.5,
+        "Part that get Buff": "Damage"
+    },
+    {
+        "Name": "Excalibur",
+        "Rate of Buff": -2.6,
+        "Part that get Buff": "Damage"
+    },
+    {
+        "Name": "King Arthur's Chestplate",
+        "Rate of Buff": 0.3,
+        "Part that get Buff": "Health"
+    },
+    {
+        "Name": "Seamen's Crusty Boot",
+        "Rate of Buff": 3.0,
+        "Part that get Buff": "Health"
+    }
+]

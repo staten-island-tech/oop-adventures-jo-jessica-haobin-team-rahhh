@@ -41,13 +41,15 @@ with open('items.json', mode='r') as  readfile:
 
 def itemstuff():
     global items
-    weaponname = input('Name: ')
-    weaponbuff = float(input('Rate of Buff: '))
+    itemname = input('Name: ')
+    ratebuff = float(input('Rate of Buff: '))
+    partthatgetsbuffed = input('Part that gets buffed: ')
 
     items.append(
         {
-            "Name": weaponname,
-            "Rate of Buff": weaponbuff
+            "Name": itemname,
+            "Rate of Buff": ratebuff,
+            "Part that get Buff": partthatgetsbuffed 
         }
     )
 

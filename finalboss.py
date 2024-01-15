@@ -16,5 +16,4 @@ def thebossbattle():
         partsinbattle.warrior_fight(enemy_name)
     elif h == "Mage":
         partsinbattle.mage_fight(enemy_name)
-
 thebossbattle()
