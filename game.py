@@ -92,13 +92,24 @@ def inventory():
      if equip == "N":
           check_equip = input("Would you like to check your equipped items? Y/N: ").upper()
           if check_equip == "Y":
-               input(f"Equipped: {Users.equipped}")
+               input(f"Equipped: {Users.equipped_items}")
           input("Ok.. Returning to main screen...")
           after_tut()
+          
      if equip == "Y":
-          buddy_wanna_equip = input("What would you like to equip?: ").title()
-          if buddy_wanna_equip in Users.inventory:
-               Users.add_item_from_equipped(buddy_wanna_equip, Users)
+          
+          is_anything_equipped = Users.check_if_any_equipped("Sword")
+          if is_anything_equipped:
+               equip_or_no = input("Something is already equipped, would you like to remove it? Y/N: ").title()
+               if equip_or_no == "Y":
+                    jj = input("What would you like to remove?: ").title()
+                    Users.remove_item_from_equipped(jj)
+               if equip_or_no == "N":
+                    after_tut()
+          else:
+               input("Nothing is equipped. Would you like to equip something? Y/N: ")
+               buddy_wanna_equip = input("What would you like to equip?: ").title()
+               Users.add_item_from_equipped(buddy_wanna_equip)
           after_tut()
           
 def BATTLE():
