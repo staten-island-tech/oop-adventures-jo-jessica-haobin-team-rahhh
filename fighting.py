@@ -1,4 +1,4 @@
-import random, os, json, time
+import random, os, json
 os.system('cls')
 
 data = open("./data.json", encoding="utf8")
@@ -40,8 +40,9 @@ class partsinbattle:
         elif enemy_name == 'Zombie': enemy_name, enemy_attack, enemy_health = data[2]['Name'], data[2]['Damage'], data[2]['Health']
         elif enemy_name == 'Skeleton': enemy_name, enemy_attack, enemy_health = data[3]['Name'], data[3]['Damage'], data[3]['Health']
         elif enemy_name == 'Goblin': enemy_name, enemy_attack, enemy_health = data[1]['Name'], data[1]['Damage'], data[1]['Health']
-        elif enemy_name == 'Mr.Whalen': enemy_name, enemy_attack, enemy_health = data[4]['Name'], data[4]['Damage'], data[4]['Health']
-        character = 100
+        elif enemy_name == 'Mr.Whalen': 
+            enemy_name, enemy_attack, enemy_health = data[4]['Name'], data[4]['Damage'], data[4]['Health']
+            character = 200
         while True:
             os.system('cls')
             a, g = random.randint(1,6), random.randint(1,6)
@@ -97,7 +98,10 @@ class partsinbattle:
         elif enemy_name == 'Zombie': enemy_name, enemy_attack, enemy_health = data[2]['Name'], data[2]['Damage'], data[2]['Health']
         elif enemy_name == 'Skeleton': enemy_name, enemy_attack, enemy_health = data[3]['Name'], data[3]['Damage'], data[3]['Health']
         elif enemy_name == 'Goblin': enemy_name, enemy_attack, enemy_health = data[1]['Name'], data[1]['Damage'], data[1]['Health']
-        elif enemy_name == 'Mr.Whalen': enemy_name, enemy_attack, enemy_health = data[4]['Name'], data[4]['Damage'], data[4]['Health']
+        elif enemy_name == 'Mr.Whalen': 
+            enemy_name, enemy_attack, enemy_health = data[4]['Name'], data[4]['Damage'], data[4]['Health']
+            character = 200
+        
         while True:
             os.system('cls')
             a, g = random.randint(1,6), random.randint(1,6)
