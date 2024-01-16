@@ -1,4 +1,4 @@
-import random, os, json, time
+import random, os, json
 os.system('cls')
 
 data = open("./data.json", encoding="utf8")
@@ -50,7 +50,7 @@ class partsinbattle:
                         enemy_health = 0
                         os.system('cls')
                         dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'])
-                        break
+                        return True
                     else: 
                         os.system('cls')
                         dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: '])
@@ -61,7 +61,7 @@ class partsinbattle:
                         enemy_health = 0
                         os.system('cls')
                         dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'])
-                        break
+                        return True
                     else: 
                         os.system('cls')
                         dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.",'Press any button to continue: '])
@@ -82,7 +82,7 @@ class partsinbattle:
                             enemy_health = 0
                             os.system('cls')
                             dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'])
-                            break
+                            return True
                         else: 
                             os.system('cls')
                             dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.",'Press any button to continue: '])
@@ -93,7 +93,7 @@ class partsinbattle:
                             enemy_health = 0
                             os.system('cls')
                             dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'])
-                            break
+                            return True
                         else: 
                             os.system('cls')
                             dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: '])
@@ -106,7 +106,7 @@ class partsinbattle:
                     character = 0
                     os.system('cls')
                     dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You lost'])
-                    break
+                    return False
                 else: 
                     dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.",'Press any button to continue: '])
 
@@ -129,7 +129,7 @@ class partsinbattle:
                         enemy_health= 0
                         os.system('cls')
                         dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'])
-                        break
+                        return True
                     else: 
                         dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: '])
                 elif Choices == 'Laserbeam':
@@ -139,7 +139,7 @@ class partsinbattle:
                         os.system('cls')
                         enemy_health = 0
                         dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'])
-                        break
+                        return True
                     else: 
                         os.system('cls')
                         dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.",'Press any button to continue: '])
@@ -162,7 +162,7 @@ class partsinbattle:
                             os.system('cls')
                             enemy_health = 0
                             dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'])
-                            break
+                            return True
                         else: 
                             os.system('cls')
                             dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: '])
@@ -173,7 +173,7 @@ class partsinbattle:
                             enemy_health = 0
                             os.system('cls')
                             dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You win'])
-                            break
+                            return True
                         else: 
                             os.system('cls')
                             dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'Press any button to continue: '])
@@ -186,7 +186,7 @@ class partsinbattle:
                     character = 0
                     os.system('cls')
                     dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.", 'You lost'])
-                    break
+                    return False
                 else: 
                     os.system('cls')
                     dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.",'Press any button to continue: '])
@@ -202,7 +202,13 @@ def fight():
     os.system('cls')
     if h == "Warrior":
         partsinbattle.warrior_fight(enemy_name)
+        if partsinbattle.warrior_fight(enemy_name) == True:
+            return True
+        else: 
+            return False
     elif h == "Mage":
         partsinbattle.mage_fight(enemy_name)
-
-fight()
+        if partsinbattle.mage_fight(enemy_name) == True:
+            return True
+        else: 
+            return False
