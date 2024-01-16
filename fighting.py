@@ -3,7 +3,8 @@ os.system('cls')
 
 data = open("./data.json", encoding="utf8")
 data = json.load(data)
-
+character, stab, knife_throw = 100, random.randint(20, 40), random.randint(10,70)
+fireball, laserbeam =  random.randint(30, 120), random.randint(50, 60)
 def dialogue(Statements = '', Options = ''):    
     if Statements != '':
         for Statement in Statements: 
@@ -31,12 +32,12 @@ class partsinbattle:
             print("A Goblin spawned")
         
     def warrior_fight(enemy_name):
+        global character, stab, knife_throw
         if enemy_name == 'Dragon': enemy_name, enemy_attack, enemy_health = data[0]['Name'], data[0]['Damage'], data[0]['Health']
         elif enemy_name == 'Zombie': enemy_name, enemy_attack, enemy_health = data[2]['Name'], data[2]['Damage'], data[2]['Health']
         elif enemy_name == 'Skeleton': enemy_name, enemy_attack, enemy_health = data[3]['Name'], data[3]['Damage'], data[3]['Health']
         elif enemy_name == 'Goblin': enemy_name, enemy_attack, enemy_health = data[1]['Name'], data[1]['Damage'], data[1]['Health']
         elif enemy_name == 'Mr.Whalen': enemy_name, enemy_attack, enemy_health = data[4]['Name'], data[4]['Damage'], data[4]['Health']
-        character, stab, knife_throw = 100, random.randint(20, 40), random.randint(10,70)
         while True:
             os.system('cls')
             a, g = random.randint(1,6), random.randint(1,6)
@@ -110,12 +111,12 @@ class partsinbattle:
                     dialogue([f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP.",'Press any button to continue: '])
 
     def mage_fight(enemy_name):
+        global character, fireball, laserbeam
         if enemy_name == 'Dragon': enemy_name, enemy_attack, enemy_health = data[0]['Name'], data[0]['Damage'], data[0]['Health']
         elif enemy_name == 'Zombie': enemy_name, enemy_attack, enemy_health = data[2]['Name'], data[2]['Damage'], data[2]['Health']
         elif enemy_name == 'Skeleton': enemy_name, enemy_attack, enemy_health = data[3]['Name'], data[3]['Damage'], data[3]['Health']
         elif enemy_name == 'Goblin': enemy_name, enemy_attack, enemy_health = data[1]['Name'], data[1]['Damage'], data[1]['Health']
         elif enemy_name == 'Mr.Whalen': enemy_name, enemy_attack, enemy_health = data[4]['Name'], data[4]['Damage'], data[4]['Health']
-        character, fireball, laserbeam = 150, random.randint(30, 120), random.randint(50, 60)
         while True:
             os.system('cls')
             a, g = random.randint(1,6), random.randint(1,6)
