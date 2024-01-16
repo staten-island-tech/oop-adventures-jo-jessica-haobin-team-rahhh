@@ -19,6 +19,6 @@ if tut.tutorial_part2() >= 100:
 
     
 
-
+print("1+1=3")
 
 

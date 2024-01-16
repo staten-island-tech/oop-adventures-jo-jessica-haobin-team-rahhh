@@ -21,6 +21,7 @@ class tut:
         input(f"It is up to you, to defeat {enemy_name} and restore the kingdom.")
         input("You were given 200 coins to start with and 100 HP.")
         input("Instructions: To attack, input E. To engage in the fight, input P.")
+        input("You also roll 2 dice to determine if you attack or the enemy attacks.")
         input("Everytime you leave a battle, 10 EXP points will be deducted from you.")
         input("EXP points are used to level up, each level needs 100 EXP points. Once you get to a high enough level, you may fight with the final boss...")
 
