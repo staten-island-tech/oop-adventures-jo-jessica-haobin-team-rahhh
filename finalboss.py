@@ -13,23 +13,32 @@ class thebossbattle:
         input("If you're still willing to continue press any buttons to go on: ")
         return enemy_name
     
-    def sayyourclass():
-        a = input("State your class one last time: ")
-        return a
+    def chancetochangeclass():
+        os.system('cls')
+        print("You have a chance to change class before your battle! ")
+        print("If you want to change class, choose the opposite of your current class")
+        print("If you don't want to change class, choose the same class")
+        Options = ['Warrior', 'Mage']
+        if Options != '':
+            x = input(f"{'|'.join(Options)}: ").capitalize()
+            while x not in Options:
+                x = input(f"{'|'.join(Options)}: ").capitalize()
+            return x
 
     def fightboss(yourclass):
+        os.system('cls')
         b = thebossbattle.createboss()
-        if yourclass == 'warrior':
+        if yourclass == 'Warrior':
             a = partsinbattle.warrior_fight(b)
             if a == True:
-                print('Congratulation of beating the boss!!!')
+                print('Congratulation on beating the boss!!!')
                 return True
             elif a == False:
                 print('You now have to start from scratch again.')
-        elif yourclass == 'mage':
+        elif yourclass == 'Mage':
             c = partsinbattle.mage_fight(b)
             if c == True:
-                print('Congratulation of beating the boss!!!')
+                print('Congratulation on beating the boss!!!')
             elif c == False:
                 print('You now have to start from scratch again.')
 

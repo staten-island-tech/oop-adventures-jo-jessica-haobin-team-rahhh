@@ -75,9 +75,9 @@ class partsinbattle:
                             
             elif a + g == 6:
                 os.system('cls')
-                dialogue([f"You've rolled a {a+g} so you can heal"])
+                dialogue(Statements=[f"You've rolled a {a+g} so you can heal"])
                 character += 100
-                dialogue([f"You've healed 100 hp. You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP."], Inputs='Press any button to continue: ')
+                dialogue(Statements=[f"You've healed 100 hp. You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP."], Inputs='Press any button to continue: ')
                 
             elif a + g < 6:
                 os.system('cls')
@@ -133,9 +133,9 @@ class partsinbattle:
                     
             elif a + g == 7:
                 os.system('cls')
-                dialogue([f"You've rolled a {a+g} so you can heal"])
+                dialogue(Statements=[f"You've rolled a {a+g} so you can heal"])
                 character += 100
-                dialogue([f"You've healed 100 HP. You currently have {character} HP. Then {enemy_name} currently have {enemy_health} HP"], Inputs='Press any button to continue: ')
+                dialogue(Statements=[f"You've healed 100 HP. You currently have {character} HP. Then {enemy_name} currently have {enemy_health} HP"], Inputs='Press any button to continue: ')
                 
             elif a + g < 7:
                 os.system('cls')
