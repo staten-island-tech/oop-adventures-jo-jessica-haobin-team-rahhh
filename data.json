@@ -2,31 +2,31 @@
     {
         "Name": "Dragon",
         "Health": 300,
-        "Damage": 50,
-        "Exp": 40
+        "Damage": 25,
+        "Exp": 70
     },
     {
         "Name": "Goblin",
         "Health": 70,
-        "Damage": 10,
-        "Exp": 5
+        "Damage": 5,
+        "Exp": 25
     },
     {
         "Name": "Zombie",
         "Health": 100,
-        "Damage": 30,
-        "Exp": 15
+        "Damage": 15,
+        "Exp": 40
     },
     {
         "Name": "Skeleton",
         "Health": 90,
-        "Damage": 30,
-        "Exp": 10
+        "Damage": 10,
+        "Exp": 30
     },
     {
         "Name": "Mr.Whalen",
         "Health": 500,
-        "Damage": 100,
+        "Damage": 30,
         "Exp": 300
     }
 ]
