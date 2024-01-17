@@ -75,9 +75,9 @@ class partsinbattle:
                             
             elif a + g == 6:
                 os.system('cls')
-                dialogue([f"You've rolled a {a+g} so you can heal"])
+                dialogue(Statements=[f"You've rolled a {a+g} so you can heal"])
                 character += 100
-                dialogue([f"You've healed 100 hp. You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP."], Inputs='Press any button to continue: ')
+                dialogue(Statements=[f"You've healed 100 hp. You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP."], Inputs='Press any button to continue: ')
                 
             elif a + g < 6:
                 os.system('cls')
@@ -133,9 +133,9 @@ class partsinbattle:
                     
             elif a + g == 7:
                 os.system('cls')
-                dialogue([f"You've rolled a {a+g} so you can heal"])
+                dialogue(Statements=[f"You've rolled a {a+g} so you can heal"])
                 character += 100
-                dialogue([f"You've healed 100 HP. You currently have {character} HP. Then {enemy_name} currently have {enemy_health} HP"], Inputs='Press any button to continue: ')
+                dialogue(Statements=[f"You've healed 100 HP. You currently have {character} HP. Then {enemy_name} currently have {enemy_health} HP"], Inputs='Press any button to continue: ')
                 
             elif a + g < 7:
                 os.system('cls')
@@ -150,23 +150,5 @@ class partsinbattle:
                     os.system('cls')
                     dialogue(Statements=[f"You currently have {character} HP. The {enemy_name} currently have {enemy_health} HP."], Inputs='Press any button to continue: ')
 
-def fight():
-    b = random.randint(1,100)
-    global enemy_health, enemy_attack, enemy_name
-    os.system('cls')
-    h = dialogue(['Choose between Warrior and Mage: '], ['Warrior', 'Mage'])
-    os.system('cls')
-    partsinbattle.spawn_enemy(b)
-    dialogue([f"You are on an adventure and you encounter a {enemy_name}. The chances of you attacking and the enemy attacking is decided by 2 dices."], Inputs='Press any buttons to continue to fight:  ')
-    os.system('cls')
-    if h == "Warrior":
-        if partsinbattle.warrior_fight(enemy_name) == True:
-            return True
-        elif partsinbattle.warrior_fight(enemy_name) == False:
-            return False
-    elif h == "Mage":
-        if partsinbattle.mage_fight(enemy_name) == True:
-            return True
-        elif partsinbattle.mage_fight(enemy_name) == False:
-            return False
+
 
