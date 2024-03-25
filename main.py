@@ -1,5 +1,4 @@
-#put tutorital here
-#after tutorial, put fight 
+
 import os
 from tutorial import tut
 from finalboss import thebossbattle
@@ -19,10 +18,5 @@ if tut.tutorial_part2() >= 100:
 
     
 
-# 1 + 1 = 3
-# 1 - 1 + 1 - 1 = 3 - 1 - 1
-# 0 + 0 = 1
-# 1 = 100%
-# two failing grades == a passing grade
 
 
